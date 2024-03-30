@@ -1,0 +1,34 @@
+.initial-header {
+  position: relative;
+  width: 100%;
+  height: 985px;
+  background-image: url("../assets/initial-header-mask.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 7px solid $orange-color;
+  @media screen and (max-width: $breakpoint1720) {
+    height: 700px;
+  }
+  @media screen and (max-width: $breakpoint1420) {
+    height: 600px;
+  }
+  &__logo-wrapper {
+    height: 64px;
+    padding-left: 250px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  &__wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 230px;
+    display: flex;
+    align-items: center;
+    gap: 130px;
+    @media screen and (max-width: $breakpoint1720) {
+      right: 190px;
+    }
+  }
+}

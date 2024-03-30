@@ -1,0 +1,19 @@
+@import "./fonts";
+@import './vars';
+@import "./extensions";
+@import "./breakpoints";
+@import "../components/components.scss";
+@import "../layout/layout.scss";
+@import "../pages/pages";
+@import "../antd/antd";
+
+* {
+  font-family: 'regular';
+}
+
+button {
+  cursor: pointer;
+  &:hover {
+    transition: 0.5s all ease;
+  }
+}

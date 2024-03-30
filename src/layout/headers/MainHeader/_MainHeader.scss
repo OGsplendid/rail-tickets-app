@@ -1,0 +1,23 @@
+.main-header {
+  width: 100%;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 596px;
+    background-image: url("../assets/main-header-mask.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &_logo-wrapper {
+      height: 64px;
+      padding-left: 250px;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+    &_form-wrapper {
+      margin-left: 150px;
+    }
+  }
+}

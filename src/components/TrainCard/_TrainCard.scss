@@ -1,0 +1,181 @@
+.train-card {
+  width: 959px;
+  border: 1px solid #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 47px;
+  display: flex;
+  &__wrapper-left {
+    width: 197px;
+    background-color: #E4E0E9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-right: 40px;
+    & img {
+      margin-bottom: 20px;
+    }
+    &_train-number {
+      margin-bottom: 20px;
+      font-family: 'bold';
+      font-size: 24px;
+    }
+    & div {
+      display: block;
+    }
+    & p {
+      margin-bottom: 3px;
+      font-size: 16px;
+    }
+  }
+  &__wrapper-middle {
+    width: 370px;
+    padding: 40px 0;
+    display: block;
+    margin-right: 75px;
+    &_wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &_section {
+      display: flex;
+      gap: 25px;
+      margin-bottom: 55px;
+      &_part {
+        display: flex;
+        flex-direction: column;
+        & img {
+          width: 30px;
+        }
+      }
+      &_time {
+        font-family: 'bold';
+        font-size: 24px;
+      }
+      &_city {
+        font-size: 18px;
+      }
+      &_station {
+        font-size: 16px;
+        color: #928F94;
+      }
+      &_duration {
+        position: relative;
+        right: 8px;
+        bottom: 10px;
+        font-size: 18px;
+        color: #C4C4C4;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  &__wrapper-right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    border-left-color: #C4C4C4;
+    border-left-width: 1px;
+    border-left-style: solid;
+    padding: 0 15px 0 25px;
+    color: #928F94;
+    &_seats {
+      display: block;
+    }
+    &_seat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 32px;
+      font-size: 16px;
+      margin-top: 25px;
+      & span {
+        font-family: 'bold';
+        font-size: 24px;
+        color: #2D2B2F;
+        margin-left: 3px;
+      }
+      &_type {
+        font-size: 16px;
+        color: #3E3C41;
+        width: 80px;
+      }
+      &_amount {
+        font-family: 'medium';
+        font-size: 16px;
+        color: $orange-color;
+      }
+      & img {
+        width: 16px;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &_image {
+      position: absolute;
+      bottom: 75px;
+      right: 25px;
+      fill: #C4C4C4;
+      width: 92px;
+    }
+    & button {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 228px;
+      height: 39px;
+      background-color: $orange-color;
+      font-family: 'bold';
+      font-size: 24px;
+      color: $white-color;
+      border: none;
+      border-radius: 5px;
+      &:hover {
+        box-shadow: 4px 4px rgba(0, 0, 0, 0.25);
+      }
+      &:active {
+        background-color: transparent;
+        border: 1px solid $orange-color;
+        color: $orange-color;
+      }
+      &.disabled {
+        color: $white-color;
+        background-color: #918F94;
+      }
+    }
+    &_options {
+      position: relative;
+      width: 100%;
+      background-color: #E5E5E5;
+      padding: 15px 10px;
+      border-radius: 5px;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+      z-index: 999;
+      & div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 32px;
+      }
+      & img {
+        width: 16px;
+      }
+      & span {
+        color: #2D2B2F;
+        font-family: 'bold';
+        font-size: 24px;
+        margin-left: 3px;
+      }
+    }
+  }
+}
+/* Group 8 */
+
+/* Group 8 */
+/* Rectangle 9 */
+/* Group 11.1 */

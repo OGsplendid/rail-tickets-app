@@ -1,0 +1,31 @@
+.navmenu-container {
+  width: 100%;
+  height: 94px;
+  background-color: $gray-color;
+  display: flex;
+  align-items: center;
+  &__wrapper {
+    display: flex;
+    padding-left: 250px;
+    @media screen and (max-width: $breakpoint1420) {
+      padding-left: 150px;
+    }
+  }
+  &__item {
+    font-family: 'light';
+    font-size: 30px;
+    color: $white-color;
+    margin-right: 70px;
+    &:hover {
+      color: $orange-on-gray-color;
+      transition: .3s all ease;
+      cursor: pointer;
+    }
+    &:active {
+      color: $white-color;
+    }
+    @media screen and (max-width: $breakpoint1420) {
+      font-size: 24px;
+    }
+  }
+}

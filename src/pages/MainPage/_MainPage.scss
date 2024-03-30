@@ -1,0 +1,156 @@
+.main-page {
+  &__about-us {
+    white-space: no-wrap;
+    padding: 145px 480px 115px 250px;
+    & h2 {
+      font-family: 'medium';
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+    &_paragraph {
+      font-family: 'regular';
+      font-size: 24px;
+      border-left: 9px solid $orange-color;
+      padding-left: 15px;
+      & p {
+        margin-bottom: 35px;
+      }
+      &_strong {
+        font-family: 'bold';
+      }
+    }
+    @media screen and (max-width: $breakpoint1420) {
+      padding: 90px 320px 90px 200px;
+    }
+  }
+  &__info {
+    padding: 70px 270px 100px;
+    width: 100%;
+    min-height: 575px;
+    background-image: url("../assets/mask-rails.svg");
+    background-size: cover;
+    background-position: center;
+    &_how-it-works {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & h2 {
+        font-family: 'medium';
+        font-size: 36px;
+        margin-bottom: 30px;
+        color: $white-color;
+        text-transform: uppercase;
+        margin-bottom: 0;
+      }
+      & button {
+        width: 325px;
+        height: 60px;
+        color: $white-color;
+        font-family: bold;
+        font-size: 24px;
+        border: 1px solid $white-color;
+        border-radius: 5px;
+        background-color: transparent;
+        &:hover {
+          background-color: $white-color;
+          color: $gray-color2;
+          border: 0;
+        }
+        &:active {
+          background-color: $white-color;
+          color: $gray-color2;
+        }
+      }
+    }
+    @media screen and (max-width: $breakpoint1420) {
+      padding: 50px 180px 80px;
+    }
+  }
+  &__info-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    margin-top: 100px;
+  }
+  &__info_item-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 162px;
+    & img {
+      border: 14px solid rgb(229, 229, 229, 0.2);
+      border-radius: 100%;
+      margin-bottom: 30px;
+    }
+    & h6 {
+      font-size: 24px;
+      color: $white-color;
+      text-align: center;
+    }
+  }
+  &__feedback {
+    padding: 134px 179px 250px 250px;
+    @media screen and (max-width: 1800px) {
+      padding: 80px 120px 150px 130px;
+    }
+    & h2 {
+      font-family: 'medium';
+      font-size: 36px;
+      text-transform: uppercase;
+      color: $gray-color;
+      margin-bottom: 80px;
+    }
+    &_item-wrapper {
+      width: 645px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      & img {
+        border-radius: 100%;
+        @media screen and (max-width: $breakpoint1720) {
+          width: 150px;
+        }
+      }
+      & h6 {
+        font-family: 'medium';
+        font-size: 24px;
+        text-transform: capitalize;
+        margin-bottom: 25px;
+        @media screen and (max-width: $breakpoint1720) {
+          font-size: 18px;
+        }
+      }
+      & p {
+        position: relative;
+        font-family: 'lightItalic';
+        font-size: 18px;
+        color: #928F94;
+        &::before {
+          content: '“';
+          font-family: 'medium';
+          font-size: 36px;
+          position: absolute;
+          top: -5px;
+          left: -15px;
+        }
+        &::after {
+          content: '”';
+          font-family: 'medium';
+          font-size: 36px;
+          position: absolute;
+          bottom: -30px;
+          right: 10px;
+        }
+      }
+    }
+  }
+  &__feedback-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px;
+  }
+}

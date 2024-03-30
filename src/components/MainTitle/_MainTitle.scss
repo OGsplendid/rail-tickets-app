@@ -1,0 +1,27 @@
+.main-title {
+  position: relative;
+  color: $white-color;
+  bottom: 40px;
+  &__thin {
+    display: block;
+    font-family: 'thin';
+    font-size: 72px;
+    @media screen and (max-width: $breakpoint1720) {
+      font-size: 56px;
+    }
+    @media screen and (max-width: $breakpoint1420) {
+      font-size: 48px;
+    }
+  }
+  &__bold {
+    display: block;
+    font-family: 'bold';
+    font-size: 72px;
+    @media screen and (max-width: $breakpoint1720) {
+      font-size: 56px;
+    }
+    @media screen and (max-width: $breakpoint1420) {
+      font-size: 48px;
+    }
+  }
+}

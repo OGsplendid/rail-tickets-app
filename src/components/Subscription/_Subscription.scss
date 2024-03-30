@@ -1,0 +1,65 @@
+.subscription {
+  max-width: 500px;
+  & h3 {
+    font-family: 'medium';
+    font-size: 30px;
+    margin-bottom: 80px;
+    color: $white-color;
+  }
+  &__form {
+    position: relative;
+    display: flex;
+    gap: 33px;
+    margin-bottom: 50px;
+    & label {
+      position: absolute;
+      top: -50px;
+      left: 0;
+      font-family: 'regular';
+      font-size: 24px;
+      color: #E5E5E5;
+      line-height: 28px;
+    }
+    & input {
+      box-sizing: border-box;
+      width: 447px;
+      height: 60px;
+      border-radius: 3px;
+      padding-left: 25px;
+      padding-right: 25px;
+      font-size: 20px;
+      &::placeholder {
+        color: #E5E5E5;
+        opacity: 1;
+      }
+    }
+    & button {
+      width: 169px;
+      height: 60px;
+      border: 1px solid #E5E5E5;
+      border-radius: 3px;
+      background-color: transparent;
+      font-family: 'regular';
+      font-size: 24px;
+      color: #E5E5E5;
+      &:hover {
+        background-color: #FFCA62;
+        color: $gray-color2;
+      }
+      &:active {
+        background-color: $gray-color2;
+        color: $white-color;
+        box-shadow: none;
+        color: $orange-color;
+        background-color: $white-color;
+        border: 1px solid $orange-color;
+      }
+    }
+  }
+  &__social-links {
+    margin-top: -53px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+}
