@@ -1,0 +1,50 @@
+.sorter {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #928F94;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__sort-time {
+    position: relative;
+    margin-right: 50px;
+    &_chosen {
+      color: #292929;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    &_menu {
+      position: absolute;
+      top: -3px;
+      right: -45px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: #F7F5F9;
+      color: #3E3C41;
+      & span {
+        border-top: 1px solid #E5E5E5;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 2;
+        &:hover {
+          background-color: #FFCA62;
+          color: $white-color;
+        }
+      }
+    }
+  }
+  &__offset {
+    & span {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    &_chosen {
+      color: #292929;
+    }
+  }
+}
+/* Rectangle 10 */

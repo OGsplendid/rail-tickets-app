@@ -1,0 +1,50 @@
+.wagon-service {
+  display: flex;
+  gap: 10px;
+  &__wrapper {
+    position: relative;
+    &_tip {
+      position: absolute;
+      bottom: -38px;
+      left: -14px;
+      opacity: 0;
+      transition: 0.3s all ease;
+      font-size: 16px;
+      color: #292929;
+      padding: 8px;
+      min-width: 40px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+  &__item {
+    cursor: pointer;
+    &:hover + div {
+      opacity: 1;
+    }
+    &:hover {
+      & rect {
+        fill: $orange-color;
+      }
+    }
+    &.chosen {
+      fill: $orange-color;
+      & path {
+        fill: white;
+      }
+      & rect {
+        stroke: none;
+      }
+    }
+    &.included {
+      fill: #FCDC9D;
+      cursor: default;
+      pointer-events: none;
+      & path {
+        fill: #928F94;
+      }
+      & rect {
+        stroke: none;
+      }
+    }
+  }
+}

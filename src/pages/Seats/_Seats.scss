@@ -1,0 +1,12 @@
+.seats-page {
+  position: relative;
+  & h2:first-child {
+    font-family: 'medium';
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  // &__main {
+  //   position: relative;
+  // }
+}

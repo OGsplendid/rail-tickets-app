@@ -1,0 +1,63 @@
+.summary-passengers {
+  position: relative;
+  margin-bottom: 47px;
+  border: 1px solid #928F94;
+  & h3 {
+    border-bottom: 1px solid #928F94;
+    font-size: 30px;
+    padding: 30px;
+  }
+  &__passengers {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0 0 25px;
+    &_wrapper {
+      display: flex;
+      margin-bottom: 30px;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+    &_img-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      font-size: 18px;
+    }
+    &_info-wrapper {
+      display: flex;
+      flex-direction: column;
+      font-size: 18px;
+      & h6 {
+        margin-bottom: 20px;
+      }
+      & p {
+        color: #928F94;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  &__sum {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    &_wrapper {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      margin-bottom: 30px;
+      & p {
+        font-size: 30px;
+      }
+      & span {
+        font-family: 'bold';
+        font-size: 30px;
+        margin-right: 8px;
+      }
+      & img {
+        width: 20px;
+      }
+    }
+  }
+}

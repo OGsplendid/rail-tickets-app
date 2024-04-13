@@ -1,0 +1,300 @@
+.passenger-info {
+  width: 960px;
+  border: 1px solid #C4C4C4;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  color: $gray-color;
+  margin-bottom: 30px;
+  & label {
+    font-size: 16px;
+    color: #928F94;
+  }
+  &__head {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    background-color: #F9F9F9;
+    padding: 25px;
+    border-bottom: 1px solid #928F94;
+    & img {
+      cursor: pointer;
+    }
+    & h3 {
+      font-size: 30px;
+    }
+    &_wrapper {
+      display: flex;
+      gap: 10px;
+    }
+  }
+  &__main {
+    &_select-age {
+      margin-bottom: 60px;
+      font-size: 24px;
+      color: $gray-color;
+      position: relative;
+      padding: 30px 15px 0;
+      & input {
+        width: 280px;
+        height: 50px;
+        border: 1px solid #928F94;
+        padding-left: 15px;
+        border-radius: 5px;
+        background-color: #F4F3F6;
+        font-size: 24px;
+        color: $gray-color;
+        cursor: pointer;
+      }
+      & img {
+        position: absolute;
+        top: 52px;
+        left: 250px;
+        cursor: pointer;
+      }
+      &_roll {
+        position: absolute;
+        top: 29px;
+        left: 15px;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        background-color: #F4F3F6;
+        border-radius: 5px;
+        padding-top: 10px;
+        padding-left: 8px;
+        & span {
+          padding: 5px 10px;
+          cursor: pointer;
+          &:nth-child(n+2) {
+            border-top: 1px solid #C4C4C4;
+            font-size: 24px;
+            color: $gray-color;
+          }
+        }
+      }
+    }
+    &_name {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 60px;
+      padding: 0 15px;
+      &_wrapper {
+        position: relative;
+        & input {
+          width: 280px;
+          height: 50px;
+          border: 1px solid #928F94;
+          padding-left: 15px;
+          border-radius: 5px;
+          background-color: #F4F3F6;
+          font-size: 24px;
+          color: $gray-color;
+        }
+        & label {
+          position: absolute;
+          top: -20px;
+          left: 0;
+        }
+      }
+    }
+    &_sex-date {
+      display: flex;
+      margin-bottom: 30px;
+      gap: 30px;
+      padding: 0 15px;
+      &_wrapper-sex {
+        position: relative;
+        display: flex;
+        & label {
+          position: absolute;
+          top: -22px;
+          left: 0;
+        }
+        & div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100px;
+          height: 50px;
+          border: 1px solid #928F94;
+          border-radius: 5px;
+          font-family: 'black';
+          font-size: 30px;
+          cursor: pointer;
+          &:first-child {
+            border-right: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+          &:last-child {
+            border-left: none;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+          }
+          &.active {
+            background-color: $orange-color;
+          }
+        }
+      }
+      &_wrapper-date {
+        position: relative;
+        & input {
+          width: 280px;
+          height: 50px;
+          border: 1px solid #928F94;
+          padding-left: 15px;
+          border-radius: 5px;
+          background-color: #F4F3F6;
+          font-size: 24px;
+          color: $gray-color;
+          &::placeholder {
+            color: #E5E5E5;
+            opacity: 1;
+          }
+        }
+        & label {
+          position: absolute;
+          top: -20px;
+          left: 0;
+        }
+      }
+    }
+    &_checkbox {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #928F94;
+      padding: 0 15px 25px;
+      & input {
+        width: 28px;
+      }
+      & label {
+        font-size: 18px;
+        color: #292929;
+      }
+    }
+    &_select-type {
+      font-size: 24px;
+      color: $gray-color;
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+      border-bottom: 1px solid #928F94;
+      padding: 30px 15px;
+      &_passport {
+        width: 205px;
+        height: 50px;
+        border: 1px solid #928F94;
+        padding-left: 15px;
+        border-radius: 5px;
+        background-color: #F4F3F6;
+        font-size: 24px;
+        color: $gray-color;
+        cursor: pointer;
+        &::placeholder {
+          font-size: 16px;
+          color: #C4C4C4;
+        }
+      }
+      &_kid {
+        width: 444px;
+        height: 50px;
+        border: 1px solid #928F94;
+        padding-left: 15px;
+        border-radius: 5px;
+        background-color: #F4F3F6;
+        font-size: 24px;
+        color: $gray-color;
+      }
+      &_roll {
+        position: absolute;
+        top: 22px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        width: 444px;
+        background-color: #F4F3F6;
+        border-radius: 5px;
+        padding-top: 10px;
+        padding-left: 8px;
+        & span {
+          padding: 5px 10px;
+          cursor: pointer;
+          &:nth-child(n+2) {
+            border-top: 1px solid #C4C4C4;
+            font-size: 24px;
+            color: $gray-color;
+          }
+        }
+      }
+      &_wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        & img {
+          position: absolute;
+          top: 50px;
+          right: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &__alert {
+    position: relative;
+    width: 960px;
+    height: 119px;
+    padding: 30px 30px 30px 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & img {
+      position: absolute;
+      top: 40px;
+      left: 25px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &_message {
+      width: 400px;
+      color: #292929;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      & span {
+        font-family: 'bold';
+      }
+    }
+    & button {
+      width: 300px;
+      height: 52px;
+      border: 1px solid #292929;
+      border-radius: 5px;
+      color: #292929;
+      font-family: 'bold';
+      font-size: 24px;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+}
+
+.pink-background {
+  background-color: rgba(255, 61, 0, 0.38);
+}
+
+.green-background {
+  background-color: #B2F6A1;
+}
+
+.success-text {
+  color: white;
+}
+
+/* Rectangle 9 */

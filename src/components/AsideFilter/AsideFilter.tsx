@@ -6,12 +6,15 @@ import wifi from '../../assets/wifi-icon.svg';
 import rocket from '../../assets/rocket-icon.svg';
 import arrowRightYellowBg from '../../assets/arrow-right-yellow-bg.svg';
 import arrowLeftYellowBg from '../../assets/arrow-left-yellow-bg.svg';
-import plusIcon from '../../assets/plus-bordered-icon.svg';
-import minusIcon from '../../assets/minus-bordered-icon.svg';
 import { AntdSlider } from '../../antd/AntdSlider/AntdSlider';
 import { Switch } from '../Switch/Switch';
+import { useState } from 'react';
+import { SVGminusIcon, SVGplusIcon } from '../../SVG/SVGIcons/SVGIcons';
 
 export const AsideFilter = () => {
+  const [oneWayOpen, setOneWayOpen] = useState(false);
+  const [twoWaysOpen, setTwoWaysOpen] = useState(false);
+
   return (
     <div className="aside-filter">
 
@@ -99,10 +102,12 @@ export const AsideFilter = () => {
           <img src={arrowLeftYellowBg} alt="" />
           <h4>Туда</h4>
         </div>
-        <img className="aside-filter__date-from_sign" src={plusIcon} alt="" />
+        <span className="aside-filter__date-from_sign" onClick={() => setOneWayOpen((prev) => !prev)}>
+            {oneWayOpen ? <SVGminusIcon /> : <SVGplusIcon />}
+        </span>
       </div>
       
-      <div className='aside-filter__time-options'>
+      {oneWayOpen && <div className='aside-filter__time-options'>
         <div className='aside-filter__time-options_option'>
           <h5>Время отбытия</h5>
           <div className='aside-filter__time-options_slider-wrapper'>
@@ -119,15 +124,36 @@ export const AsideFilter = () => {
             <span className='aside-filter__time-options_slider-wrapper_max'>24:00</span>
           </div>
         </div>
-      </div>
+      </div>}
 
       <div className='aside-filter__date-from'>
         <div>
           <img src={arrowRightYellowBg} alt="" />
           <h4>Обратно</h4>
         </div>
-        <img className="aside-filter__date-from_sign" src={minusIcon} alt="" />
+        <span className="aside-filter__date-from_sign" onClick={() => setTwoWaysOpen((prev) => !prev)}>
+            {twoWaysOpen ? <SVGminusIcon /> : <SVGplusIcon />}
+        </span>
       </div>
+
+      {twoWaysOpen && <div className='aside-filter__time-options'>
+        <div className='aside-filter__time-options_option'>
+          <h5>Время отбытия</h5>
+          <div className='aside-filter__time-options_slider-wrapper'>
+            <AntdSlider railSize={10} handleSize={18} handleSizeHover={18} />
+            <span className='aside-filter__time-options_slider-wrapper_min'>00:00</span>
+            <span className='aside-filter__time-options_slider-wrapper_max'>24:00</span>
+          </div>
+        </div>
+        <div className='aside-filter__time-options_option'>
+          <h5>Время прибытия</h5>
+          <div className='aside-filter__time-options_slider-wrapper'>
+            <AntdSlider railSize={10} handleSize={18} handleSizeHover={18} />
+            <span className='aside-filter__time-options_slider-wrapper_min'>00:00</span>
+            <span className='aside-filter__time-options_slider-wrapper_max'>24:00</span>
+          </div>
+        </div>
+      </div>}
       
     </div>
   )

@@ -1,0 +1,21 @@
+.svg-plus-minus-icons:hover {
+  cursor: pointer;
+}
+
+.svg-plus-minus-icons:hover > path {
+  fill: #FCDC9D;
+  transition: 0.3s all ease;
+}
+
+.svg-plus-minus-icons:hover > rect {
+  stroke: #FCDC9D;
+  transition: 0.3s all ease;
+}
+
+.svg-plus-minus-icons-circled:hover {
+  cursor: pointer;
+}
+
+.svg-plus-minus-icons-circled:hover > circle {
+  display: none;
+}

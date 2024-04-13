@@ -6,7 +6,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-bottom: 7px solid $orange-color;
   @media screen and (max-width: $breakpoint1720) {
     height: 700px;
   }
@@ -30,5 +29,11 @@
     @media screen and (max-width: $breakpoint1720) {
       right: 190px;
     }
+  }
+  &__progress {
+    position: absolute;
+    bottom: -13px;
+    left: 0;
+    width: 100%;
   }
 }

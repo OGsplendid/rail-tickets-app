@@ -6,8 +6,14 @@
 @import "../layout/layout.scss";
 @import "../pages/pages";
 @import "../antd/antd";
+@import "../SVG/SVG";
+
 
 * {
+  font-family: 'regular';
+}
+
+aside, main {
   font-family: 'regular';
 }
 
@@ -16,4 +22,8 @@ button {
   &:hover {
     transition: 0.5s all ease;
   }
+}
+
+ul {
+  list-style-type: none;
 }

@@ -1,4 +1,4 @@
-import { InitialForm } from "../../../components/InitialForm/InitialForm"
+import { ConvertableForm } from "../../../components/ConvertableForm/ConvertableForm"
 import { Logo } from "../../../components/Logo/Logo"
 import { NavMenu } from "../../../components/NavMenu/NavMenu"
 import { Status } from "../../../components/Status/Status"
@@ -15,7 +15,7 @@ export const MainHeader = () => {
           <NavMenu />
         </div>
         <div className="main-header__wrapper_form-wrapper">
-          <InitialForm />
+        <ConvertableForm view='main-view' />
         </div>
       </div>
       <Status />

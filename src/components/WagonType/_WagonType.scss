@@ -1,0 +1,105 @@
+.wagon-type {
+  width: 961px;
+  &__numbers {
+    background-color: #FFD98F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 25px;
+    &_wagons {
+      display: flex;
+      align-items: center;
+      & h6 {
+        font-size: 18px;
+      }
+      & span {
+        font-family: 'bold';
+        font-size: 24px;
+        margin-left: 10px;
+      }
+    }
+    &_info {
+      font-size: 16px;
+    }
+  }
+  &__options {
+    color: $gray-color;
+    display: flex;
+    &_number {
+      width: 190px;
+      height: 160px;
+      background-color: #FFD98F;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      & h5 {
+        font-family: 'bold';
+        font-size: 72px;
+      }
+      & span {
+        font-size: 24px;
+      }
+    }
+    &_list {
+      display: flex;
+      justify-content: space-between;
+      gap: 100px;
+      padding: 30px 25px 20px 60px;
+      & h6 {
+        font-size: 18px;
+        color: #928F94;
+      }
+      &_wrapper {
+        margin-top: 25px;
+        & img {
+          width: 14px;
+          margin-left: 5px;
+        }
+        & p {
+          font-family: 'bold';
+          font-size: 24;
+          color: black;
+          margin-right: 5px;
+        }
+        & span {
+          font-family: 'bold';
+          font-size: 24;
+          color: black;
+        }
+      }
+      &_seats {
+        & div {
+          display: flex;
+        }
+        &_total {
+          font-size: 18px;
+          color: black;
+          margin-left: 5px;
+        }
+      }
+      &_extra {
+        display: flex;
+        flex-direction: column;
+        & h6 {
+          display: inline;
+          margin-bottom: 20px;
+        }
+        & span {
+          font-size: 18px;
+          color: #C4C4C4;
+          margin-left: 10px;
+        }
+        & p {
+          font-size: 16px;
+          color: #292929;
+          margin-top: 70px;
+        }
+      }
+    }
+  }
+  &__wagon {
+    padding-left: 30px;
+    margin-bottom: 50px;
+  }
+}

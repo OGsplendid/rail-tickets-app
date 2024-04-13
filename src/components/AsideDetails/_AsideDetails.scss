@@ -1,0 +1,110 @@
+.aside-details {
+  width: 360px;
+  background-color: #3E3C41;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #E5E5E5;
+  & h3 {
+    text-transform: uppercase;
+    font-family: 'medium';
+    font-size: 30px;
+  }
+  &__part {
+    width: 100%;
+    border-top: 1px solid #E5E5E5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-top: 35px;
+    &_date {
+      font-size: 18px;
+    }
+    &_total-sum {
+      font-family: 'bold';
+      font-size: 48px;
+      color: $orange-color;
+      margin-right: 5px;
+    }
+    &_ruble-sign {
+      width: 26px;
+    }
+    &_sign {
+      cursor: pointer;
+    }
+    & div {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    & h4 {
+      font-family: 'bold';
+      font-size: 30px;
+    }
+  }
+  &__info {
+    width: 100%;
+    padding: 15px;
+    &_wrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      &_route {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+      }
+      & h6 {
+        font-size: 18px;
+      }
+      &_train-number {
+        font-family: 'bold';
+        font-size: 24px;
+      }
+      &_name {
+        font-family: 'bold';
+        font-size: 16px;
+      }
+      &_middle {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        bottom: 7px;
+        font-size: 18px;
+        color: #E5E5E5;
+        & img {
+          width: 30px;
+        }
+        &_duration {
+          margin-bottom: 3px;
+        }
+      }
+      &_part {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        &_time {
+          font-family: 'bold';
+          font-size: 24px;
+          margin-bottom: 5px;
+        }
+        &_date {
+          font-size: 18px;
+          color: #928F94;
+        }
+        &_city {
+          font-size: 18px;
+          margin-bottom: 3px;
+        }
+        &_station {
+          font-size: 16px;
+          color: #928F94;
+          max-width: 100px;
+        }
+      }
+    }
+  }
+}

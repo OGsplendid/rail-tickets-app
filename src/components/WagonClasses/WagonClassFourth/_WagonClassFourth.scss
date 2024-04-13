@@ -1,0 +1,76 @@
+.wagon-class-fourth {
+  width: 921px;
+  height: 145px;
+  margin-bottom: 100px;
+  background-color: gray;
+  background-image: url("../assets/wagon-seats-4.svg");
+  position: relative;
+  &__wrapper {
+    position: absolute;
+    top: 32px;
+    left: 145px;
+  }
+  & ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 730px;
+  }
+  &__seat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 27px;
+    height: 20px;
+    background-color: lightgray;
+    margin-bottom: 2px;
+    margin-right: 17px;
+    font-family: 'bold';
+    &:nth-child(n+33) {
+      margin-top: 13px;
+    }
+    &:nth-child(n+49) {
+      margin-top: 2px;
+    }
+    &:hover {
+      cursor: pointer;
+      border: 2px solid $orange-color;
+    }
+    &:active {
+      color: $orange-color;
+    }
+    &.seat-chosen {
+      color: white;
+      background-color: $orange-color;
+    }
+    &.seat-unavailable {
+      background-color: darkgray;
+      color: darkgray;
+    }
+  }
+  &__second-row {
+    margin-top: 15px;
+    & li:nth-child(1) {
+      cursor: default;
+      opacity: 0;
+      border: none;
+    }
+    & li:nth-child(16) {
+      position: relative;
+      top: 22px;
+    }
+  }
+  &__wagon-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 31px;
+    height: 24px;
+    background-color: rgb(46, 44, 44);
+    color: white;
+    font-family: 'bold';
+    font-size: 14px;
+  }
+}

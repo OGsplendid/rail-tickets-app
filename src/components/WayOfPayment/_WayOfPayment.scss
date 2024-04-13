@@ -1,0 +1,106 @@
+.payment-way {
+  border: 1px solid #928F94;
+  border-top: none;
+  & h3 {
+    font-size: 30px;
+    color: #292929;
+    border-bottom: 1px solid #928F94;
+    padding: 25px 20px;
+    margin-bottom: 40px;
+  }
+  &__online {
+    padding: 0 20px 60px;
+    border-bottom: 1px solid #928F94;
+    margin-bottom: 40px;
+    &_checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      & input {
+        display: none;
+        &:checked + .payment-way__online_checkbox_styled::before {
+          opacity: 1;
+        }
+      }
+      &_styled {
+        position: relative;
+        border: 1px solid #928F94;
+        border-radius: 5px;
+        width: 28px;
+        height: 28px;
+        &::before {
+          opacity: 0;
+          content: url('../assets/111test.png');
+          position: absolute;
+          display: block;
+          width: 23px;
+          height: 18px;
+          // background-image: url('../../assets/111test.png');
+          // background-position: center;
+          // background-size: cover;
+          // background-color: $orange-color;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: .2s;
+        }
+      }
+      &_label {
+        font-size: 24px;
+        color: #928F94;
+      }
+    }
+    &_options {
+      display: flex;
+      gap: 100px;
+      & p {
+        font-family: 'bold';
+        font-size: 24px;
+      }
+    }
+  }
+  &__cash {
+    padding: 0 20px 40px;
+    &_checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      & input {
+        display: none;
+        &:checked + .payment-way__cash_checkbox_styled::before {
+          opacity: 1;
+        }
+      }
+      &_styled {
+        position: relative;
+        border: 1px solid #928F94;
+        border-radius: 5px;
+        width: 28px;
+        height: 28px;
+        &::before {
+          opacity: 0;
+          // content: url('../../assets/check-orange.svg');
+          content: '';
+          position: absolute;
+          display: block;
+          width: 23px;
+          height: 18px;
+          // background-image: url('../../assets/111test.png');
+          // background-position: center;
+          // background-size: cover;
+          background-color: $orange-color;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: .2s;
+        }
+      }
+      &_label {
+        font-size: 24px;
+        color: #928F94;
+      }
+    }
+  }
+}

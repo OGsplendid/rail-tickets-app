@@ -1,0 +1,23 @@
+.summary-payment {
+  position: relative;
+  margin-bottom: 47px;
+  border: 1px solid #928F94;
+  & h3 {
+    border-bottom: 1px solid #928F94;
+    font-size: 30px;
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+  &__wrapper {
+    padding: 20px 15px 50px;
+    & span {
+      font-size: 24px;
+      padding: 30px;
+    }
+  }
+  &__button-wrapper {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+  }
+}

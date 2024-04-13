@@ -1,4 +1,5 @@
-import { InitialForm } from '../../../components/InitialForm/InitialForm';
+import { Progress } from 'antd';
+import { ConvertableForm } from '../../../components/ConvertableForm/ConvertableForm';
 import { Logo } from '../../../components/Logo/Logo';
 import { MainTitle } from '../../../components/MainTitle/MainTitle';
 import { NavMenu } from '../../../components/NavMenu/NavMenu';
@@ -14,7 +15,10 @@ export const InitialHeader = () => {
       <NavMenu />
       <div className="initial-header__wrapper">
         <MainTitle />
-        <InitialForm />
+        <ConvertableForm view='initial-view' />
+      </div>
+      <div className='initial-header__progress'>
+        <Progress percent={100} strokeColor='#FFA800' strokeLinecap='square' showInfo={false} />
       </div>
     </header>
   )

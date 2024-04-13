@@ -3,8 +3,9 @@ import rightArrow from '../../assets/arrow-yellow-right.svg';
 import leftArrow from '../../assets/arrow-yellow-left.svg';
 import ruble from '../../assets/ruble-sign.svg';
 import options from '../../assets/3icons-in-a-row.svg';
+import { ChangeButton } from '../ChangeButton/ChangeButton';
 
-export const TrainCard = () => {
+export const TrainCard = ({ buttonType }: { buttonType: string }) => {
   return (
     <article className="train-card">
       <div className="train-card__wrapper-left">
@@ -89,8 +90,15 @@ export const TrainCard = () => {
           </div> */}
           
         </div>
+
         <img src={options} alt="" className="train-card__wrapper-right_image" />
-        <button>Выбрать места</button>
+        <div className='train-card-wrapper'>
+          {buttonType === 'primary'
+            ? <button className='train-card-button'>Выбрать места</button>
+            : <ChangeButton />
+          }
+        </div>
+
       </div>
 
     </article>

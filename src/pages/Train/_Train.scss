@@ -1,16 +1,11 @@
 .train-page {
-  width: 100%;
-  &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    padding: 90px 250px 190px;
+  position: relative;
+  &__cards {
+    margin-top: 50px;
   }
-  &__main {
-    position: relative;
-    &_pagination {
-      position: absolute;
-      bottom: -100px;
-      right: -30px;
-    }
+  &__pagination {
+    position: absolute;
+    bottom: -100px;
+    right: -30px;
   }
 }
