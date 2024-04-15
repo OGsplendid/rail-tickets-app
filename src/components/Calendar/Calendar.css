@@ -22,25 +22,27 @@
 }
 
 .calendar__header__arrow__left {
-  width: 100px;
-  height: 100px;
+  width: 25px;
+  height: 43px;
   cursor: pointer;
-  background-image: url('../../../assets/arrow-for-calendar.png');
+  background-image: url('../../assets/arrow-for-calendar.png');
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 20px;
   z-index: 5;
   transform: rotate(-180deg);
   /* background-image: var(--images-arrow); */
 }
 
 .calendar__header__arrow__right {
-  width: 10px;
-  height: 20px;
+  width: 25px;
+  height: 43px;
   cursor: pointer;
   z-index: 5;
-  background-image: url('../../../assets/arrow-for-calendar.png');
+  background-image: url('../../assets/arrow-for-calendar.png');
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 20px;
   /* background-image: var(--images-arrow); */
 }
 

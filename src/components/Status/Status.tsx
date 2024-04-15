@@ -2,23 +2,20 @@ export const Status = () => {
   return (
     <div className="status">
       <div className="status__item active">
-        <h4>1</h4>
-        <h5>Билеты</h5>
-        <div className="status__item_triangle active"></div>
+        <div>1</div>
+        <p>Билеты</p>
       </div>
       <div className="status__item">
-        <h4>2</h4>
-        <h5>Пассажиры</h5>
-        <div className="status__item_triangle"></div>
+        <div>2</div>
+        <p>Пассажиры</p>
       </div>
       <div className="status__item">
-        <h4>3</h4>
-        <h5>Оплата</h5>
-        <div className="status__item_triangle"></div>
+        <div>3</div>
+        <p>Оплата</p>
       </div>
       <div className="status__item">
-        <h4>4</h4>
-        <h5>Проверка</h5>
+        <div>4</div>
+        <p>Проверка</p>
       </div>
     </div>
   )

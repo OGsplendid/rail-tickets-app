@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "@reduxjs/toolkit"
-import { localhostActions } from "../store/localhost.slice";
+import { studentsNetoservicesActions } from "../store/students.netoservices.slice";
 
 const actions = {
-  ...localhostActions,
+  ...studentsNetoservicesActions,
 }
 
 export const useActions = () => {

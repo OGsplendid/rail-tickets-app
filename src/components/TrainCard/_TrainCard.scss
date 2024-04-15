@@ -93,6 +93,10 @@
       min-height: 32px;
       font-size: 16px;
       margin-top: 25px;
+      &:hover + .train-card__wrapper-right_options {
+        opacity: 1;
+        transition: .3s all ease;
+      }
       & span {
         font-family: 'bold';
         font-size: 24px;
@@ -116,13 +120,6 @@
         margin-bottom: 0;
       }
     }
-    &_image {
-      position: absolute;
-      bottom: 75px;
-      right: 25px;
-      fill: #C4C4C4;
-      width: 92px;
-    }
     &_options {
       position: relative;
       width: 100%;
@@ -130,7 +127,8 @@
       padding: 15px 10px;
       border-radius: 5px;
       box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-      z-index: 999;
+      z-index: 5;
+      opacity: 0;
       & div {
         display: flex;
         justify-content: space-between;
@@ -146,6 +144,11 @@
         font-size: 24px;
         margin-left: 3px;
       }
+    }
+    &_extra {
+      position: absolute;
+      bottom: 80px;
+      right: 25px;
     }
   }
 }

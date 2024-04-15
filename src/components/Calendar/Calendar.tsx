@@ -1,9 +1,9 @@
 import React from 'react';
-
-import { checkDateIsEqual, checkIsToday } from '../../utils/helpers/date';
-import { useCalendar } from './hooks/useCalendar';
-
+import './static/css/global.css';
 import './Calendar.css';
+
+import { checkDateIsEqual, checkIsToday } from './utils';
+import { useCalendar } from './hooks/useCalendar';
 
 interface CalendarProps {
   locale?: string;

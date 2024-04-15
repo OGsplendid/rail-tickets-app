@@ -1,12 +1,23 @@
 import { Slider, ConfigProvider } from 'antd';
 
-interface IAntdProps {
+interface IAntdSliderProps {
   railSize: number,
   handleSize: number,
   handleSizeHover: number,
+  min: number,
+  max: number,
+  defaultValue: number[],
 }
 
-export const AntdSlider = ({ railSize, handleSize, handleSizeHover }: IAntdProps) => {
+export const AntdSlider = ({
+  railSize,
+  handleSize,
+  handleSizeHover,
+  min,
+  max,
+  defaultValue
+}: IAntdSliderProps) => {
+
   return (
     <>
       <ConfigProvider
@@ -26,13 +37,12 @@ export const AntdSlider = ({ railSize, handleSize, handleSizeHover }: IAntdProps
         }}
       >
         <Slider 
-          range defaultValue={[20, 50]} 
+          range defaultValue={defaultValue} min={min} max={max}
           tooltip={{
             placement: 'bottom', 
             color: 'transparent', 
             arrow: false,
             overlayInnerStyle: {fontSize: '16px', boxShadow: 'none', marginTop: '-7px'},
-
           }} />
       </ConfigProvider>
     </>

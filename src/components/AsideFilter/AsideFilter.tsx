@@ -8,12 +8,93 @@ import arrowRightYellowBg from '../../assets/arrow-right-yellow-bg.svg';
 import arrowLeftYellowBg from '../../assets/arrow-left-yellow-bg.svg';
 import { AntdSlider } from '../../antd/AntdSlider/AntdSlider';
 import { Switch } from '../Switch/Switch';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { SVGminusIcon, SVGplusIcon } from '../../SVG/SVGIcons/SVGIcons';
+import { useAppSelector } from '../../hooks/redux';
+import { Calendar } from '../Calendar/Calendar';
+import { add, compareAsc, format } from 'date-fns';
+import { useActions } from '../../hooks/actions';
+
+interface ITogglersState {
+  [key: string]: boolean,
+  have_first_class: boolean,
+  have_second_class: boolean,
+  have_third_class: boolean,
+  have_fourth_class: boolean,
+  have_wifi: boolean,
+  have_express: boolean,
+}
 
 export const AsideFilter = () => {
+  const { destinationsQuery: { date_start, date_end } } = useAppSelector(state => state.railTickets);
+  const { setDestinationQuery } = useActions();
+  const ref = useRef<HTMLDivElement>(null);
+
   const [oneWayOpen, setOneWayOpen] = useState(false);
   const [twoWaysOpen, setTwoWaysOpen] = useState(false);
+
+  const [form, setForm] = useState({ dateFrom: date_start, dateTo: date_end, });
+  const [calendarOpen, setCalendarOpen] = useState('');
+  const [selectedDate, setSelectedDay] = useState<Date>(new Date());
+
+  const [togglersValue, setTogglersValue] = useState<ITogglersState>({
+    have_first_class: false,
+    have_second_class: false,
+    have_third_class: false,
+    have_fourth_class: false,
+    have_wifi: false,
+    have_express: false,
+  })
+
+  const handleCalendarOpen = (inputName: string) => {
+    if (calendarOpen == inputName) {
+      setCalendarOpen('');
+      return;
+    }
+    setCalendarOpen(inputName);
+  }
+
+  const handleTogglersChange = (name: string) => {
+    setTogglersValue((prev) => ({
+      ...prev,
+      [name]: !togglersValue[name],
+    }))
+  }
+
+  useEffect(() => {
+    const actualSelectedDate = add(selectedDate, {
+      hours: 23,
+      minutes: 59,
+      seconds: 59,
+    });
+    if (compareAsc(actualSelectedDate, new Date()) < 0) return;
+    if (calendarOpen === 'dateFrom'
+      && form.dateTo
+      && compareAsc(actualSelectedDate, form.dateTo) > 0) return;
+    if (calendarOpen === 'dateTo'
+      && form.dateFrom
+      && compareAsc(actualSelectedDate, form.dateFrom) < 0) return;
+
+    setForm((prev) => ({
+      ...prev,
+      [calendarOpen]: format(selectedDate, 'yyyy.MM.dd'),
+    }));
+  }, [calendarOpen, form.dateFrom, form.dateTo, selectedDate])
+
+  useEffect(() => {
+    const calendar = ref.current;
+    const handler = (e: MouseEvent) => {
+      if (calendar && !calendar.contains(e.target as Node)) {
+        setCalendarOpen('');
+      }
+    }
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler)
+  })
+
+  // useEffect(() => {
+
+  // })
 
   return (
     <div className="aside-filter">
@@ -21,11 +102,33 @@ export const AsideFilter = () => {
       <form className="aside-filter__form">
         <div className="aside-filter__form_wrapper">
           <label className="aside-filter__form_wrapper_label" htmlFor="filter-from">Дата поездки</label>
-          <input className="aside-filter__form_wrapper_input" name="filter-from"></input>
+          <input
+            onClick={() => handleCalendarOpen('dateFrom')}
+            className="aside-filter__form_wrapper_input"
+            name="filter-from"
+            readOnly
+            value={form.dateFrom}
+          >
+          </input>
+          {calendarOpen === 'dateFrom' &&
+          <div ref={ref} className='aside-filter__form_wrapper_calendar'>
+            <Calendar selectedDate={selectedDate} selectDate={(date: Date) => setSelectedDay(date)} />
+          </div>}
         </div>
         <div className="aside-filter__form_wrapper">
           <label className="aside-filter__form_wrapper_label" htmlFor="filter-to">Дата возвращения</label>
-          <input className="aside-filter__form_wrapper_input" name="filter-to"></input>
+          <input
+            onClick={() => handleCalendarOpen('dateTo')}
+            className="aside-filter__form_wrapper_input"
+            name="filter-to"
+            readOnly
+            value={form.dateTo}
+          >
+          </input>
+          {calendarOpen === 'dateTo' &&
+          <div ref={ref} className='aside-filter__form_wrapper_calendar'>
+            <Calendar selectedDate={selectedDate} selectDate={(date: Date) => setSelectedDay(date)} />
+          </div>}
         </div>
       </form>
 
@@ -37,7 +140,10 @@ export const AsideFilter = () => {
             </div>
             <p>Купе</p>
           </div>
-          <Switch />
+          <Switch 
+            onChange={handleTogglersChange}
+            name='have_second_class'
+            value={togglersValue.have_second_class} />
         </div>
         <div className="aside-filter__options_wrapper">
           <div>
@@ -46,7 +152,10 @@ export const AsideFilter = () => {
             </div>
             <p>Плацкарт</p>
           </div>
-          <Switch />
+          <Switch
+            onChange={handleTogglersChange}
+            name='have_third_class'
+            value={togglersValue.have_third_class} />
         </div>
         <div className="aside-filter__options_wrapper">
           <div>
@@ -55,7 +164,10 @@ export const AsideFilter = () => {
             </div>
             <p>Сидячий</p>
           </div>
-          <Switch />
+          <Switch
+            onChange={handleTogglersChange}
+            name='have_fourth_class'
+            value={togglersValue.have_fourth_class} />
         </div>
         <div className="aside-filter__options_wrapper">
           <div>
@@ -64,7 +176,10 @@ export const AsideFilter = () => {
             </div>
             <p>Люкс</p>
           </div>
-          <Switch />
+          <Switch
+            onChange={handleTogglersChange}
+            name='have_first_class'
+            value={togglersValue.have_first_class} />
         </div>
         <div className="aside-filter__options_wrapper">
           <div>
@@ -73,7 +188,10 @@ export const AsideFilter = () => {
             </div>
             <p>Wi-Fi</p>
           </div>
-          <Switch />
+          <Switch
+            onChange={handleTogglersChange}
+            name='have_wifi'
+            value={togglersValue.have_wifi} />
         </div>
         <div className="aside-filter__options_wrapper">
           <div>
@@ -82,7 +200,10 @@ export const AsideFilter = () => {
             </div>
             <p>Экспресс</p>
           </div>
-          <Switch />
+          <Switch
+            onChange={handleTogglersChange}
+            name='have_express'
+            value={togglersValue.have_express} />
         </div>
       </div>
 
@@ -91,9 +212,16 @@ export const AsideFilter = () => {
         <div className='aside-filter__price_slider-wrapper'>
           <span className='aside-filter__price_slider-wrapper_from'>от</span>
           <span className='aside-filter__price_slider-wrapper_to'>до</span>
-          <AntdSlider railSize={19} handleSize={24} handleSizeHover={24} />
-          <span className='aside-filter__price_slider-wrapper_min'>min</span>
-          <span className='aside-filter__price_slider-wrapper_max'>max</span>
+          <AntdSlider
+            railSize={19}
+            handleSize={24}
+            handleSizeHover={24}
+            min={0}
+            max={10000}
+            defaultValue={[1000, 4000]}
+          />
+          <span className='aside-filter__price_slider-wrapper_min'>0</span>
+          <span className='aside-filter__price_slider-wrapper_max'>10000</span>
         </div>
       </div>
       
@@ -111,7 +239,14 @@ export const AsideFilter = () => {
         <div className='aside-filter__time-options_option'>
           <h5>Время отбытия</h5>
           <div className='aside-filter__time-options_slider-wrapper'>
-            <AntdSlider railSize={10} handleSize={18} handleSizeHover={18} />
+            <AntdSlider
+              railSize={10}
+              handleSize={18}
+              handleSizeHover={18}
+              min={0}
+              max={24}
+              defaultValue={[0, 24]}
+            />
             <span className='aside-filter__time-options_slider-wrapper_min'>00:00</span>
             <span className='aside-filter__time-options_slider-wrapper_max'>24:00</span>
           </div>
@@ -119,7 +254,14 @@ export const AsideFilter = () => {
         <div className='aside-filter__time-options_option'>
           <h5>Время прибытия</h5>
           <div className='aside-filter__time-options_slider-wrapper'>
-            <AntdSlider railSize={10} handleSize={18} handleSizeHover={18} />
+            <AntdSlider
+              railSize={10}
+              handleSize={18}
+              handleSizeHover={18}
+              min={0}
+              max={24}
+              defaultValue={[0, 24]}
+            />
             <span className='aside-filter__time-options_slider-wrapper_min'>00:00</span>
             <span className='aside-filter__time-options_slider-wrapper_max'>24:00</span>
           </div>
@@ -140,7 +282,14 @@ export const AsideFilter = () => {
         <div className='aside-filter__time-options_option'>
           <h5>Время отбытия</h5>
           <div className='aside-filter__time-options_slider-wrapper'>
-            <AntdSlider railSize={10} handleSize={18} handleSizeHover={18} />
+            <AntdSlider
+              railSize={10}
+              handleSize={18}
+              handleSizeHover={18}
+              min={0}
+              max={24}
+              defaultValue={[0, 24]}
+            />
             <span className='aside-filter__time-options_slider-wrapper_min'>00:00</span>
             <span className='aside-filter__time-options_slider-wrapper_max'>24:00</span>
           </div>
@@ -148,7 +297,14 @@ export const AsideFilter = () => {
         <div className='aside-filter__time-options_option'>
           <h5>Время прибытия</h5>
           <div className='aside-filter__time-options_slider-wrapper'>
-            <AntdSlider railSize={10} handleSize={18} handleSizeHover={18} />
+            <AntdSlider
+              railSize={10}
+              handleSize={18}
+              handleSizeHover={18}
+              min={0}
+              max={24}
+              defaultValue={[0, 24]}
+            />
             <span className='aside-filter__time-options_slider-wrapper_min'>00:00</span>
             <span className='aside-filter__time-options_slider-wrapper_max'>24:00</span>
           </div>

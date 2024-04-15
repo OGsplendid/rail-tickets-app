@@ -20,7 +20,7 @@ export const PassengerInfo = () => {
   const [ageValue, setAgeValue] = useState('Взрослый');
   const [optionTypeOpen, setOptionTypeOpen] = useState(false);
   const [typeValue, setTypeValue] = useState('Паспорт РФ');
-  const [sex, setSex] = useState('M');
+  const [gender, setGender] = useState('M');
   const [formOpen, setFormOpen] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -79,24 +79,30 @@ export const PassengerInfo = () => {
           </div>
         </div>
 
-        <div className='passenger-info__main_sex-date'>
-          <div className='passenger-info__main_sex-date_wrapper-sex'>
-              <label>Пол</label>
-              <div onClick={() => setSex('М')} className={sex === 'М' ? 'active' : ''}>М</div>
-              <div onClick={() => setSex('Ж')} className={sex === 'Ж' ? 'active' : ''}>Ж</div>
-          </div> 
-          <div className='passenger-info__main_sex-date_wrapper-date'>
+        <div className='passenger-info__main_gender-date'>
+          <div className='passenger-info__main_gender-date_wrapper'>
+            <label>
+              <input type='radio' name='gender'></input>
+              <span>М</span>
+            </label>
+            <label>
+              <input type='radio' name='gender'></input>
+              <span>Ж</span>
+            </label>
+          </div>
+          <div className='passenger-info__main_gender-date_wrapper-date'>
             <label htmlFor='date-birth'>Дата рождения</label>
             <input id='date-birth' readOnly placeholder='ДД/ММ/ГГ'></input>
           </div> 
         </div>
 
-        <div className='passenger-info__main_checkbox'>
+        <label className='passenger-info__main_checkbox'>
           <input id='checkbox' type='checkbox' />
-          <label htmlFor='checkbox'>Ограниченная подвижность</label>
-        </div>
+          <span className='passenger-info__main_checkbox_styled'></span>
+          <span className='passenger-info__main_checkbox_label'>Ограниченная подвижность</span>
+        </label>
 
-        {typeValue === 'Паспорт РФ' && <div className='passenger-info__main_select-type'>
+        <div className='passenger-info__main_select-type'>
           <div className='passenger-info__main_select-type_wrapper'>
             <label htmlFor='document-type'>Тип документа</label>
             <img src={triangleDown} alt="🔻" />
@@ -113,48 +119,33 @@ export const PassengerInfo = () => {
             </div>}
           </div>
 
-          <div className='passenger-info__main_select-type_wrapper'>
-            <label htmlFor='passport-series'>Серия</label>
-            <input
-              className='passenger-info__main_select-type_passport'
-              id='passport-series'
-              placeholder='_ _ _ _' />
-          </div>
+          {typeValue === 'Паспорт РФ' &&
+          <>
+            <div className='passenger-info__main_select-type_wrapper'>
+              <label htmlFor='passport-series'>Серия</label>
+              <input
+                className='passenger-info__main_select-type_passport'
+                id='passport-series'
+                placeholder='_ _ _ _' />
+            </div>
+            <div className='passenger-info__main_select-type_wrapper'>
+              <label htmlFor='passport-number'>Номер</label>
+              <input
+                className='passenger-info__main_select-type_passport'
+                id='passport-number'
+                placeholder='_ _ _ _ _ _' />
+            </div>
+          </>}
 
-          <div className='passenger-info__main_select-type_wrapper'>
-            <label htmlFor='passport-number'>Номер</label>
-            <input
-              className='passenger-info__main_select-type_passport'
-              id='passport-number'
-              placeholder='_ _ _ _ _ _' />
-          </div>
-        </div>}
-
-        {typeValue === 'Свидетельство о рождении' && <div className='passenger-info__main_select-type'>
-          <div className='passenger-info__main_select-type_wrapper wrapper-kid'>
-            <label htmlFor='document-type'>Тип документа</label>
-            <img src={triangleDown} alt="🔻" />
-            <input
-               className='passenger-info__main_select-type_kid'
-               id='document-type'
-               onClick={() => setOptionTypeOpen(true)}
-               readOnly
-               value={typeValue} />
-            {optionTypeOpen && <div className='passenger-info__main_select-type_roll'>
-            {types.map((a) => (
-              <span onClick={() => handleTypeClick(a)}>{a}</span>
-            ))}
-          </div>}
-          </div>
-
+          {typeValue === 'Свидетельство о рождении' &&
           <div className='passenger-info__main_select-type_wrapper'>
             <label htmlFor='passport-series'>Номер</label>
             <input
               className='passenger-info__main_select-type_passport'
               id='passport-series'
               placeholder='12 символов' />
-          </div>
-        </div>}
+          </div>}
+        </div>
       </div>
 
       <div className={`passenger-info__alert ${error ? 'pink-background' : success ? 'green-background' : ''}`}>

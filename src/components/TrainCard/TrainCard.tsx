@@ -1,11 +1,13 @@
 import train from '../../assets/train-gray-icon.svg';
 import rightArrow from '../../assets/arrow-yellow-right.svg';
-import leftArrow from '../../assets/arrow-yellow-left.svg';
 import ruble from '../../assets/ruble-sign.svg';
-import options from '../../assets/3icons-in-a-row.svg';
 import { ChangeButton } from '../ChangeButton/ChangeButton';
+import { TrainOptionsSVG } from '../TrainOptionsSVG/TrainOptionsSVG';
+import { useAppSelector } from '../../hooks/redux';
 
 export const TrainCard = ({ buttonType }: { buttonType: string }) => {
+  const { destinationsQuery: { date_start, date_end } } = useAppSelector(state => state.railTickets);
+
   return (
     <article className="train-card">
       <div className="train-card__wrapper-left">
@@ -76,7 +78,7 @@ export const TrainCard = ({ buttonType }: { buttonType: string }) => {
             <div>от <span>3820</span> <img src={ruble} alt="" /> </div>
           </div>
 
-          {/* <div className='train-card__wrapper-right_options'>
+          <div className='train-card__wrapper-right_options'>
             <div>
               <div className="train-card__wrapper-right_seat_type">верхние</div>
               <div className="train-card__wrapper-right_seat_amount">19</div>
@@ -87,18 +89,18 @@ export const TrainCard = ({ buttonType }: { buttonType: string }) => {
               <div className="train-card__wrapper-right_seat_amount">19</div>
               <div>от <span>2920</span> <img src={ruble} alt="" /> </div>
             </div>
-          </div> */}
-          
+          </div>
         </div>
-
-        <img src={options} alt="" className="train-card__wrapper-right_image" />
+        
+        <div className='train-card__wrapper-right_extra'>
+          <TrainOptionsSVG />
+        </div>
         <div className='train-card-wrapper'>
           {buttonType === 'primary'
             ? <button className='train-card-button'>Выбрать места</button>
             : <ChangeButton />
           }
         </div>
-
       </div>
 
     </article>

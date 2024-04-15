@@ -22,6 +22,9 @@
         &:checked + .payment-way__online_checkbox_styled::before {
           opacity: 1;
         }
+        &:checked ~ span {
+          color: $orange-color;
+        }
       }
       &_styled {
         position: relative;
@@ -31,19 +34,15 @@
         height: 28px;
         &::before {
           opacity: 0;
-          content: url('../assets/111test.png');
+          content: url('../assets/check-orange.svg');
           position: absolute;
           display: block;
           width: 23px;
           height: 18px;
-          // background-image: url('../../assets/111test.png');
-          // background-position: center;
-          // background-size: cover;
-          // background-color: $orange-color;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          transition: .2s;
+          transition: .3s all ease;
         }
       }
       &_label {
@@ -72,6 +71,9 @@
         &:checked + .payment-way__cash_checkbox_styled::before {
           opacity: 1;
         }
+        &:checked ~ span {
+          color: $orange-color;
+        }
       }
       &_styled {
         position: relative;
@@ -81,20 +83,15 @@
         height: 28px;
         &::before {
           opacity: 0;
-          // content: url('../../assets/check-orange.svg');
-          content: '';
+          content: url('../assets/check-orange.svg');
           position: absolute;
           display: block;
           width: 23px;
           height: 18px;
-          // background-image: url('../../assets/111test.png');
-          // background-position: center;
-          // background-size: cover;
-          background-color: $orange-color;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          transition: .2s;
+          transition: .3s all ease;
         }
       }
       &_label {

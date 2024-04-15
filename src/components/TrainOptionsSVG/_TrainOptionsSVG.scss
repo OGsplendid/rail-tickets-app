@@ -1,0 +1,26 @@
+.train-options-svg {
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+  &__wifi {
+    &.train-option-active {
+      & path {
+        fill: $orange-color;
+      }
+    }
+  }
+  &__rocket {
+    &.train-option-active {
+      & path {
+        fill: $orange-color;
+      }
+    }
+  }
+  &__cup {
+    &.train-option-active {
+      & path {
+        fill: $orange-color;
+      }
+    }
+  }
+}

@@ -98,31 +98,22 @@
         }
       }
     }
-    &_sex-date {
+    &_gender-date {
       display: flex;
       margin-bottom: 30px;
       gap: 30px;
       padding: 0 15px;
-      &_wrapper-sex {
+      &_wrapper {
         position: relative;
         display: flex;
         & label {
-          position: absolute;
-          top: -22px;
-          left: 0;
-        }
-        & div {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100px;
-          height: 50px;
-          border: 1px solid #928F94;
-          border-radius: 5px;
-          font-family: 'black';
-          font-size: 30px;
-          cursor: pointer;
-          &:first-child {
+          & input {
+            display: none;
+            &:checked + span {
+              background-color: $orange-color;
+            }
+          }
+          &:first-child span {
             border-right: none;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
@@ -132,8 +123,18 @@
             border-bottom-left-radius: 0;
             border-top-left-radius: 0;
           }
-          &.active {
-            background-color: $orange-color;
+          & span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 50px;
+            border: 1px solid #928F94;
+            border-radius: 5px;
+            font-family: 'black';
+            font-size: 30px;
+            color: black;
+            cursor: pointer;
           }
         }
       }
@@ -169,11 +170,37 @@
       border-bottom: 1px solid #928F94;
       padding: 0 15px 25px;
       & input {
-        width: 28px;
+        display: none;
+        &:checked + .passenger-info__main_checkbox_styled::before {
+          opacity: 1;
+        }
+        &:checked ~ span {
+          color: $orange-color;
+        }
       }
-      & label {
+      &_label {
         font-size: 18px;
         color: #292929;
+      }
+      &_styled {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        border: 1px solid #928F94;
+        border-radius: 5px;
+        margin-right: 15px;
+        &::before {
+          content: url('../assets/check-orange.svg');
+          opacity: 0;
+          position: absolute;
+          display: block;
+          width: 23px;
+          height: 18px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: .3s all ease;
+        }
       }
     }
     &_select-type {
@@ -186,7 +213,7 @@
       border-bottom: 1px solid #928F94;
       padding: 30px 15px;
       &_passport {
-        width: 205px;
+        min-width: 100px;
         height: 50px;
         border: 1px solid #928F94;
         padding-left: 15px;
@@ -200,23 +227,13 @@
           color: #C4C4C4;
         }
       }
-      &_kid {
-        width: 444px;
-        height: 50px;
-        border: 1px solid #928F94;
-        padding-left: 15px;
-        border-radius: 5px;
-        background-color: #F4F3F6;
-        font-size: 24px;
-        color: $gray-color;
-      }
       &_roll {
         position: absolute;
         top: 22px;
         left: 0;
         display: flex;
         flex-direction: column;
-        width: 444px;
+        min-width: 100px;
         background-color: #F4F3F6;
         border-radius: 5px;
         padding-top: 10px;

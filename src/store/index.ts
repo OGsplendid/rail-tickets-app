@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { localhostApi } from "./localhost.api";
-import { localhostReducer } from "./localhost.slice";
+import { studentsNetoservicesApi } from "./students.netoservices.api";
+import { studentsNetoservicesReducer } from "./students.netoservices.slice";
 
 export const store = configureStore({
   reducer: {
-    [localhostApi.reducerPath]: localhostApi.reducer,
-    shoesShop: localhostReducer,
+    [studentsNetoservicesApi.reducerPath]: studentsNetoservicesApi.reducer,
+    railTickets: studentsNetoservicesReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(localhostApi.middleware)
+    getDefaultMiddleware().concat(studentsNetoservicesApi.middleware)
 })
 
 export type RootState = ReturnType<typeof store.getState>;
