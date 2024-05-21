@@ -1,5 +1,9 @@
+import { useActions } from "../../hooks/actions"
+
 export const Logo = () => {
+  const { setStage } = useActions();
+
   return (
-    <span className="logo">Лого</span>
+    <span onClick={() => setStage(0)} className="logo">Лого</span>
   )
 }

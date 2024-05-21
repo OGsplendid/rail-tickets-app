@@ -10,67 +10,67 @@
   &__form {
     display: block;
     margin-bottom: 30px;
-    &_wrapper {
-      position: relative;
-      &:nth-child(n+2) {
-        margin-top: 70px;
-      }
-      &_label {
-        position: absolute;
-        top: -40px;
-        font-size: 30px;
-      }
-      &_input {
-        width: 295px;
-        height: 43px;
-        border-radius: 5px;
-        padding: 0 15px;
-        cursor: pointer;
-      }
-      &_calendar {
-        position: absolute;
-        top: 65px;
-        left: -18px;
-        &::before {
-          content: '';
-          position: absolute;
-          top: -23px;
-          left: calc(50% - 12px);
-          display: block;
-          width: 0;
-          height: 0;
-          border-left: 10px solid transparent;
-          border-right: 10px solid transparent;
-          border-top: 0;
-          border-bottom: 25px solid white;
-        }
-      }
+  }
+  &__form-wrapper {
+    position: relative;
+    &:nth-child(n+2) {
+      margin-top: 70px;
     }
-  } 
+  }
+  &__label {
+    position: absolute;
+    top: -40px;
+    font-size: 30px;
+  }
+  &__input {
+    width: 295px;
+    height: 43px;
+    border-radius: 5px;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+  &__calendar {
+    position: absolute;
+    top: 65px;
+    left: -18px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -23px;
+      left: calc(50% - 12px);
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 0;
+      border-bottom: 25px solid white;
+    }
+  }
   &__options {
     display: block;
     padding: 25px 35px 25px 60px;
     width: 100%;
     border-top: 1px solid #E5E5E5;
-    &_wrapper {
+  }
+  &__options-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    & div {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 35px;
+      align-items: center;
+      width: 100px;
       & div {
-        display: flex;
-        align-items: center;
-        width: 100px;
-        & div {
-          width: 20px;
-        }
-        & p {
-          font-size: 18px;
-          margin-left: 30px;
-        }
+        width: 20px;
       }
-      &:last-child {
-        margin-bottom: 0;
+      & p {
+        font-size: 18px;
+        margin-left: 30px;
       }
+    }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
   &__price {
@@ -80,31 +80,31 @@
     & h4 {
       font-size: 30px;
     }
-    &_slider-wrapper {
-      position: relative;
-      padding-left: 8px;
-      padding-right: 8px;
-      &_from {
-        position: absolute;
-        top: -6px;
-        left: 7px;
-      }
-      &_to {
-        position: absolute;
-        top: -6px;
-        right: 7px;
-      }
-      &_min {
-        position: absolute;
-        bottom: -6px;
-        left: 7px;
-      }
-      &_max {
-        position: absolute;
-        bottom: -6px;
-        right: 7px;
-      }
-    }
+  }
+  &__slider-wrapper {
+    position: relative;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  &__price-from {
+    position: absolute;
+    top: -6px;
+    left: 7px;
+  }
+  &__price-to {
+    position: absolute;
+    top: -6px;
+    right: 7px;
+  }
+  &__price-min {
+    position: absolute;
+    bottom: -6px;
+    left: 7px;
+  }
+  &__price-max {
+    position: absolute;
+    bottom: -6px;
+    right: 7px;
   }
   &__date-to, &__date-from {
     padding: 25px;
@@ -113,12 +113,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &_sign {
-      cursor: pointer;
-      &:hover {
-        fill: #FCDC9D !important;
-      }
-    }
     & div {
       display: inline-flex;
       & img {
@@ -130,33 +124,39 @@
       font-size: 30px;
     }
   }
+  &__date-sign {
+    cursor: pointer;
+    &:hover {
+      fill: #FCDC9D !important;
+    }
+  }
   &__time-options {
     width: 100%;
     padding: 0 25px 30px;
-    &_option {
-      margin-bottom: 70px;
-      &:last-child {
-        margin-bottom: 10px;
-        text-align: right;
-      }
-    }
-    &_slider-wrapper {
-      position: relative;
-      width: 100%;
-      &_min {
-        position: absolute;
-        bottom: -15px;
-        left: 7px;
-      }
-      &_max {
-        position: absolute;
-        bottom: -15px;
-        right: 7px;
-      }
-    }
     & h5 {
       font-size: 24px;
       margin-bottom: -10px;
+    }
+  }
+  &__time-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  &__time-min {
+    position: absolute;
+    bottom: -15px;
+    left: 7px;
+  }
+  &__time-max {
+    position: absolute;
+    bottom: -15px;
+    right: 7px;
+  }
+  &__time-option {
+    margin-bottom: 70px;
+    &:last-child {
+      margin-bottom: 10px;
+      text-align: right;
     }
   }
 }

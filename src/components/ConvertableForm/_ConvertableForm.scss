@@ -3,6 +3,19 @@
   background-color: rgba(41, 41, 41, 0.8);
   border: 1px solid #000000;
   display: flex;
+  &.initial-view {
+    width: 729px;
+    height: 574px;
+    padding: 125px 20px 200px;
+    flex-direction: column;
+    gap: 105px;
+  }
+  &.main-view {
+    width: 1490px;
+    height: 310px;
+    padding: 80px 42px 180px;
+    justify-content: space-between;
+  }
   & img {
     display: block;
     width: 24px;
@@ -43,92 +56,92 @@
       font-size: 30px;
       color: $white-color;
     }
-    &_helper {
-      position: relative;
-      &_roll {
-        position: absolute;
-        top: 70px;
-        width: 324px;
-        min-height: 0;
-        max-height: 255px;
-        background-color: #F5F4F6;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 3px;
-        font-size: 18px;
-        text-transform: uppercase;
-        color: #292929;
-        z-index: 5;
-        & span {
-          cursor: pointer;
-          padding-bottom: 7px;
-          padding-left: 30px;
-          &:first-child {
-            padding-top: 15px;
-          }
-          &:last-child {
-            padding-bottom: 15px;
-          }
-          &:hover {
-            color: $orange-color;
-          }
-        }
+  }
+  &__holder {
+    position: relative;
+  }
+  &__roll {
+    position: absolute;
+    top: 70px;
+    width: 324px;
+    min-height: 0;
+    max-height: 255px;
+    background-color: #F5F4F6;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #292929;
+    z-index: 5;
+    & span {
+      cursor: pointer;
+      padding-bottom: 7px;
+      padding-left: 30px;
+      &:first-child {
+        padding-top: 15px;
+      }
+      &:last-child {
+        padding-bottom: 15px;
+      }
+      &:hover {
+        color: $orange-color;
       }
     }
-    &_geo {
-      position: relative;
-      &::after {
-        content: url('../assets/geolocation-icon2.svg');
-        display: block;
-        width: 21px;
-        height: 30px;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        pointer-events: none;
-      }
+  }
+  &__geo {
+    position: relative;
+    &::after {
+      content: url('../assets/geolocation-icon2.svg');
+      display: block;
+      width: 21px;
+      height: 30px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      pointer-events: none;
     }
-    &_calendar {
-      position: relative;
-      & input {
-        cursor: pointer;
-      }
-      &::after {
-        content: url('../assets/calendar-icon.svg');
-        display: block;
-        width: 30px;
-        height: 33px;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        pointer-events: none;
-      }
+  }
+  &__calendar-holder {
+    position: relative;
+    top: 50px;
+    left: 0;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -23px;
+      left: calc(50% - 12px);
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 0;
+      border-bottom: 25px solid white;
     }
-    &_triangle {
-      position: relative;
-      top: 50px;
-      left: 0;
-      &::before {
-        content: '';
-        position: absolute;
-        top: -23px;
-        left: calc(50% - 12px);
-        display: block;
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 0;
-        border-bottom: 25px solid white;
-      }
-      & img {
-        position: absolute;
-        top: 11px;
-        left: -178px;
-        width: 30px;
-        height: 30px;
-      }
+    & img {
+      position: absolute;
+      top: 11px;
+      left: -178px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+  &__calendar {
+    position: relative;
+    // & input {
+    //   cursor: pointer;
+    // }
+    &::after {
+      content: url('../assets/calendar-icon.svg');
+      display: block;
+      width: 30px;
+      height: 33px;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      pointer-events: none;
     }
   }
   button {
@@ -155,18 +168,5 @@
       background-color: $white-color;
       border: 1px solid $orange-color;
     }
-  }
-  &.initial-view {
-    width: 729px;
-    height: 574px;
-    padding: 125px 20px 200px;
-    flex-direction: column;
-    gap: 105px;
-  }
-  &.main-view {
-    width: 1490px;
-    height: 310px;
-    padding: 80px 42px 180px;
-    justify-content: space-between;
   }
 }

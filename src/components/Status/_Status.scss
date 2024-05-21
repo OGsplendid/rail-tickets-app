@@ -22,7 +22,7 @@
       content: '';
       display: block;
       position: absolute;
-      right: -30px;
+      right: -28px;
       border-left: 30px solid #3E3C41;
       border-right: 0;
       border-top: 50px solid transparent;
@@ -32,7 +32,7 @@
       content: '';
       display: block;
       position: absolute;
-      right: -32px;
+      right: -30px;
       border-left: 30px solid #E5E5E5;
       border-right: 0;
       border-top: 50px solid transparent;
@@ -44,6 +44,12 @@
     &:last-child {
       width: 30%;
       padding-right: 250px;
+      &::after {
+        display: none;
+      }
+      &::before {
+        display: none;
+      }
     }
     & div {
       width: 50px;

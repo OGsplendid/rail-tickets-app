@@ -17,61 +17,71 @@
     & img {
       margin-bottom: 20px;
     }
-    &_train-number {
-      margin-bottom: 20px;
-      font-family: 'bold';
-      font-size: 24px;
-    }
     & div {
       display: block;
     }
     & p {
       margin-bottom: 3px;
       font-size: 16px;
+      text-transform: capitalize;
     }
+  }
+  &__train-number {
+    margin-bottom: 20px;
+    font-family: 'bold';
+    font-size: 24px;
   }
   &__wrapper-middle {
     width: 370px;
     padding: 40px 0;
-    display: block;
-    margin-right: 75px;
-    &_wrapper {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  &__section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 25px;
+    margin-bottom: 55px;
+  }
+  &__part {
+    display: flex;
+    flex-direction: column;
+    & img {
+      width: 30px;
     }
-    &_section {
-      display: flex;
-      gap: 25px;
-      margin-bottom: 55px;
-      &_part {
-        display: flex;
-        flex-direction: column;
-        & img {
-          width: 30px;
-        }
-      }
-      &_time {
-        font-family: 'bold';
-        font-size: 24px;
-      }
-      &_city {
-        font-size: 18px;
-      }
-      &_station {
-        font-size: 16px;
-        color: #928F94;
-      }
-      &_duration {
-        position: relative;
-        right: 8px;
-        bottom: 10px;
-        font-size: 18px;
-        color: #C4C4C4;
-        margin-bottom: 5px;
-      }
-    }
+  }
+  &__time {
+    font-family: 'bold';
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  &__city {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  &__station {
+    font-size: 16px;
+    color: #928F94;
+  }
+  &__duration {
+    position: relative;
+    right: 8px;
+    bottom: 10px;
+    font-size: 18px;
+    color: #C4C4C4;
+    margin-bottom: 5px;
+  }
+  &__back-arrow {
+    transform: translate(180deg);
   }
   &__wrapper-right {
     position: relative;
@@ -81,82 +91,64 @@
     border-left-color: #C4C4C4;
     border-left-width: 1px;
     border-left-style: solid;
-    padding: 0 15px 0 25px;
+    padding: 20px 15px 20px 25px;
     color: #928F94;
-    &_seats {
-      display: block;
+  }
+  &__seats {
+    display: block;
+    margin-bottom: 20px;
+  }
+  &__seat {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 32px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    &:hover > .train-card__seat-details {
+      opacity: 1;
+      transition: .3s all ease;
     }
-    &_seat {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 32px;
-      font-size: 16px;
-      margin-top: 25px;
-      &:hover + .train-card__wrapper-right_options {
-        opacity: 1;
-        transition: .3s all ease;
-      }
-      & span {
-        font-family: 'bold';
-        font-size: 24px;
-        color: #2D2B2F;
-        margin-left: 3px;
-      }
-      &_type {
-        font-size: 16px;
-        color: #3E3C41;
-        width: 80px;
-      }
-      &_amount {
-        font-family: 'medium';
-        font-size: 16px;
-        color: $orange-color;
-      }
-      & img {
-        width: 16px;
-      }
-      &:last-child {
-        margin-bottom: 0;
-      }
+    & span {
+      font-family: 'bold';
+      font-size: 24px;
+      color: #2D2B2F;
+      margin-left: 3px;
     }
-    &_options {
-      position: relative;
-      width: 100%;
-      background-color: #E5E5E5;
-      padding: 15px 10px;
-      border-radius: 5px;
-      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-      z-index: 5;
-      opacity: 0;
-      & div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        min-height: 32px;
-      }
-      & img {
-        width: 16px;
-      }
-      & span {
-        color: #2D2B2F;
-        font-family: 'bold';
-        font-size: 24px;
-        margin-left: 3px;
-      }
+    & img {
+      width: 16px;
     }
-    &_extra {
-      position: absolute;
-      bottom: 80px;
-      right: 25px;
+    &:last-child {
+      margin-bottom: 80px;
     }
   }
-}
-
-.train-card-wrapper {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  &__seat-details {
+    position: absolute;
+    top: 100%;
+    opacity: 0;
+  }
+  &__seat-type {
+    font-size: 16px;
+    color: #3E3C41;
+    width: 80px;
+  }
+  &__seat-amount {
+    font-family: 'medium';
+    font-size: 16px;
+    color: $orange-color;
+  }
+  &__extra {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
 }
 
 .train-card-button {

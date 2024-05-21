@@ -12,13 +12,6 @@
   @media screen and (max-width: $breakpoint1420) {
     height: 600px;
   }
-  &__logo-wrapper {
-    height: 64px;
-    padding-left: 250px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-  }
   &__wrapper {
     position: absolute;
     bottom: 0;

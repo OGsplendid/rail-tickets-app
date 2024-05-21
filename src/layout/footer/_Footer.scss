@@ -20,13 +20,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 250px 0;
-    &_button-up {
-      cursor: pointer;
-    }
-    &_copyright {
-      font-family: 'light';
-      font-size: 24px;
-      color: #E5E5E5;
-    }
+  }
+  &__button-up {
+    cursor: pointer;
+  }
+  &__copyright {
+    font-family: 'light';
+    font-size: 24px;
+    color: #E5E5E5;
   }
 }

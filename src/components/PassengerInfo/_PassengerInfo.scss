@@ -45,33 +45,33 @@
         color: $gray-color;
         cursor: pointer;
       }
-      & img {
-        position: absolute;
-        top: 52px;
-        left: 250px;
-        cursor: pointer;
-      }
-      &_roll {
-        position: absolute;
-        top: 29px;
-        left: 15px;
-        display: flex;
-        flex-direction: column;
-        width: 280px;
-        background-color: #F4F3F6;
-        border-radius: 5px;
-        padding-top: 10px;
-        padding-left: 8px;
-        & span {
-          padding: 5px 10px;
-          cursor: pointer;
-          &:nth-child(n+2) {
-            border-top: 1px solid #C4C4C4;
-            font-size: 24px;
-            color: $gray-color;
-          }
-        }
-      }
+      // & img {
+      //   position: absolute;
+      //   top: 55px;
+      //   left: 270px;
+      //   cursor: pointer;
+      // }
+      // &_roll {
+      //   position: absolute;
+      //   top: 29px;
+      //   left: 15px;
+      //   display: flex;
+      //   flex-direction: column;
+      //   width: 280px;
+      //   background-color: #F4F3F6;
+      //   border-radius: 5px;
+      //   padding-top: 10px;
+      //   padding-left: 8px;
+      //   & span {
+      //     padding: 5px 10px;
+      //     cursor: pointer;
+      //     &:nth-child(n+2) {
+      //       border-top: 1px solid #C4C4C4;
+      //       font-size: 24px;
+      //       color: $gray-color;
+      //     }
+      //   }
+      // }
     }
     &_name {
       display: flex;
@@ -90,6 +90,10 @@
           background-color: #F4F3F6;
           font-size: 24px;
           color: $gray-color;
+          &::placeholder {
+            font-size: 14px;
+            color: lightgray
+          }
         }
         & label {
           position: absolute;
@@ -227,27 +231,27 @@
           color: #C4C4C4;
         }
       }
-      &_roll {
-        position: absolute;
-        top: 22px;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        min-width: 100px;
-        background-color: #F4F3F6;
-        border-radius: 5px;
-        padding-top: 10px;
-        padding-left: 8px;
-        & span {
-          padding: 5px 10px;
-          cursor: pointer;
-          &:nth-child(n+2) {
-            border-top: 1px solid #C4C4C4;
-            font-size: 24px;
-            color: $gray-color;
-          }
-        }
-      }
+      // &_roll {
+      //   position: absolute;
+      //   top: 22px;
+      //   left: 0;
+      //   display: flex;
+      //   flex-direction: column;
+      //   min-width: 100px;
+      //   background-color: #F4F3F6;
+      //   border-radius: 5px;
+      //   padding-top: 10px;
+      //   padding-left: 8px;
+      //   & span {
+      //     padding: 5px 10px;
+      //     cursor: pointer;
+      //     &:nth-child(n+2) {
+      //       border-top: 1px solid #C4C4C4;
+      //       font-size: 24px;
+      //       color: $gray-color;
+      //     }
+      //   }
+      // }
       &_wrapper {
         display: flex;
         flex-direction: column;

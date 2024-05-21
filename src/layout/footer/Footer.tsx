@@ -12,8 +12,8 @@ export const Footer = () => {
       </div>
       <div className="footer__basement">
         <Logo />
-        <img src={upBtn} alt="" className="footer__basement_button-up" />
-        <span className="footer__basement_copyright">2018 WEB</span>
+        <a href="/#main-page__about-us"><img src={upBtn} alt="" className="footer__button-up" /></a>
+        <span className="footer__copyright">2018 WEB</span>
       </div>
     </footer>
   )

@@ -19,9 +19,6 @@
     align-items: center;
     padding: 15px;
     margin-top: 35px;
-    &_date {
-      font-size: 18px;
-    }
     &_total-sum {
       font-family: 'bold';
       font-size: 48px;
@@ -30,9 +27,6 @@
     }
     &_ruble-sign {
       width: 26px;
-    }
-    &_sign {
-      cursor: pointer;
     }
     & div {
       display: flex;
@@ -43,6 +37,12 @@
       font-family: 'bold';
       font-size: 30px;
     }
+  }
+  &__sign {
+    cursor: pointer;
+  }
+  &__date {
+    font-size: 18px;
   }
   &__info {
     width: 100%;

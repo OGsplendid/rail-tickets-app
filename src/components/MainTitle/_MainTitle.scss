@@ -2,7 +2,7 @@
   position: relative;
   color: $white-color;
   bottom: 40px;
-  &__thin {
+  & p {
     display: block;
     font-family: 'thin';
     font-size: 72px;
@@ -13,7 +13,7 @@
       font-size: 48px;
     }
   }
-  &__bold {
+  & b {
     display: block;
     font-family: 'bold';
     font-size: 72px;

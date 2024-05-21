@@ -5,21 +5,23 @@ export interface ICity {
   name: string,
 }
 
+// destionationsQuery
+
 export interface IDestinationsQuery {
   [key: string]: string | boolean,
   from_city_id: string,
   to_city_id: string,
   date_start: string,
   date_end: string,
-  date_start_arrival: string,
-  date_end_arrival: string,
+  // date_start_arrival: string,
+  // date_end_arrival: string,
   have_first_class: boolean,
   have_second_class: boolean,
   have_third_class: boolean,
   have_fourth_class: boolean,
   have_wifi: boolean,
   have_air_conditioning: boolean,
-  have_express: boolean,
+  is_express: boolean,
   price_from: string,
   price_to: string,
   start_departure_hour_from: string,
@@ -33,6 +35,85 @@ export interface IDestinationsQuery {
   limit: string,
   offset: string,
   sort: string,
+}
+
+// finalRequest
+
+export interface IFinalRequest {
+  user?: IUser;
+  departure?: IWay;
+  arrival?: IWay;
+}
+
+export interface IWay {
+  route_direction_id?: string;
+  seats?: ISeat[] | [];
+}
+
+export interface ISeat {
+  coach_id?: string;
+  person_info?: IPersonInfo;
+  seat_number?: number;
+  is_child?: boolean;
+  include_children_seat?: boolean;
+}
+
+export interface IPersonInfo {
+  is_adult?: boolean;
+  first_name?: string;
+  last_name?: string;
+  patronymic?: string;
+  gender?: boolean;
+  birthday?: Date | null;
+  document_type?: string;
+  document_data?: string;
+}
+
+export interface IUser {
+  first_name?: string;
+  last_name?: string;
+  patronymic?: string;
+  phone?: string;
+  email?: string;
+  payment_method?: string;
+}
+
+// seats
+
+export interface ISeatsQuery {
+  id: string,
+  query: string,
+}
+
+// seats info
+
+export type IWagonInfo = IWagon[]
+
+export interface IWagon {
+  coach: Coach
+  seats: Seat[]
+}
+
+export interface Coach {
+  _id: string
+  name: string
+  class_type: string
+  have_wifi: boolean
+  have_air_conditioning: boolean
+  price: number
+  top_price: number
+  bottom_price: number
+  side_price: number
+  linens_price: number
+  wifi_price: number
+  is_linens_included: boolean
+  available_seats: number
+  train: string
+}
+
+export interface Seat {
+  index: number
+  available: boolean
 }
 
 // train info
@@ -110,4 +191,5 @@ export interface Price {
   price?: number
   top_price?: number
   bottom_price?: number
+  side_price?: number
 }

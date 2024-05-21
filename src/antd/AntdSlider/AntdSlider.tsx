@@ -1,4 +1,4 @@
-import { Slider, ConfigProvider } from 'antd';
+import { Slider, ConfigProvider, SliderSingleProps } from 'antd';
 
 interface IAntdSliderProps {
   railSize: number,
@@ -7,6 +7,14 @@ interface IAntdSliderProps {
   min: number,
   max: number,
   defaultValue: number[],
+  time: boolean,
+  onChange: (value: number[]) => void,
+}
+
+const formatter: NonNullable<SliderSingleProps['tooltip']>['formatter'] = (value: number | undefined): string => {
+  let result = `${value}:00`;
+  if (value && value < 10) result = `0${result}`;
+  return result;
 }
 
 export const AntdSlider = ({
@@ -15,7 +23,9 @@ export const AntdSlider = ({
   handleSizeHover,
   min,
   max,
-  defaultValue
+  defaultValue,
+  time,
+  onChange,
 }: IAntdSliderProps) => {
 
   return (
@@ -36,14 +46,25 @@ export const AntdSlider = ({
           },
         }}
       >
-        <Slider 
+        {time && <Slider
+          onChange={onChange}
+          range defaultValue={defaultValue} min={min} max={max}
+          tooltip={{
+            formatter,
+            placement: 'bottom', 
+            color: 'transparent', 
+            arrow: false,
+            overlayInnerStyle: {fontSize: '16px', boxShadow: 'none', marginTop: '-7px', zIndex: 5},
+          }} />}
+        {!time && <Slider
+          onChange={onChange}
           range defaultValue={defaultValue} min={min} max={max}
           tooltip={{
             placement: 'bottom', 
             color: 'transparent', 
             arrow: false,
-            overlayInnerStyle: {fontSize: '16px', boxShadow: 'none', marginTop: '-7px'},
-          }} />
+            overlayInnerStyle: {fontSize: '16px', boxShadow: 'none', marginTop: '-7px', zIndex: 5},
+          }} />}
       </ConfigProvider>
     </>
   )

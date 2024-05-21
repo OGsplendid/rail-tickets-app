@@ -1,6 +1,6 @@
 .wagon-card {
   width: 959px;
-  padding: 10px 0px 50px;
+  padding: 10px 0px 30px;
   color: $gray-color;
   border: 1px solid #C4C4C4;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
@@ -15,11 +15,17 @@
     & img {
       width: 76px;
     }
-    &_button {
-      font-family: 'bold';
-      font-size: 24px;
-      padding: 15px;
+    &_from {
+      justify-content: flex-end;
+      & img {
+        transform: rotate(180deg);
+      }
     }
+  }
+  &__button {
+    font-family: 'bold';
+    font-size: 24px;
+    padding: 15px;
   }
   &__train-details {
     display: flex;
@@ -27,49 +33,52 @@
     align-items: center;
     padding: 0 25px;
     margin-bottom: 50px;
-    &_left {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      &_train-number {
-        font-family: 'bold';
-        font-size: 24px;
-        color: #3E3C41;
-      }
-      &_route {
-        margin-top: 10px;
-      }
-    }
-    &_center {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-    &_part {
+  }
+  &__part {
+    display: flex;
+    flex-direction: column;
+  }
+  &__time {
+    font-family: 'bold';
+    font-size: 24px;
+    color: black;
+  }
+  &__arrow-left {
+    transform: rotate(180deg);
+  }
+  &__city {
+    font-size: 18px;
+  }
+  &__station {
+    font-size: 16px;
+    color: #928F94;
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  &__train-number {
+    font-family: 'bold';
+    font-size: 24px;
+    color: #3E3C41;
+  }
+  &__route {
+    margin-top: 10px;
+  }
+  &__center {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  &__right {
+    display: flex;
+    gap: 10px;
+    & div {
       display: flex;
       flex-direction: column;
-    }
-    &_time {
-      font-family: 'bold';
-      font-size: 24px;
-      color: black;
-    }
-    &_city {
       font-size: 18px;
-    }
-    &_station {
-      font-size: 16px;
-      color: #928F94;
-    }
-    &_right {
-      display: flex;
-      gap: 10px;
-      & div {
-        display: flex;
-        flex-direction: column;
-        font-size: 18px;
-        color: black;
-      }
+      color: black;
     }
   }
   &__quantity {
@@ -80,50 +89,41 @@
       font-size: 30px;
       margin-bottom: 40px;
     }
-    &_wrapper {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 0 30px;
-    }
-    &_part {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 16px;
-      width: 250px;
-      & input {
-        width: 240px;
-        height: 50px;
-        border: 1px solid #928F94;
-        margin-bottom: 20px;
-        padding: 15px;
-        &::placeholder {
-          font-size: 18px;
-          color: #292929;
-        }
-      }
-      &:first-child {
-        color: black;
-        background-color: #F7F6F6;
-      }
-      &:nth-child(2) {
-        color: #928F94;
-        outline-offset: 30px;
-        outline: 1px solid $orange-color;
-      }
-      & span {
-        width: 240px;
-      }
-    }
   }
-  &__wagon-type {
-    margin-bottom: 50px;
-    padding: 20px;
-    & h3 {
-      font-family: 'bold';
-      font-size: 30px;
-      margin-bottom: 30px;
+  &__quantity-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 30px;
+  }
+  &__quantity-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    width: 250px;
+    & input {
+      width: 240px;
+      height: 50px;
+      border: 1px solid #928F94;
+      margin-bottom: 20px;
+      padding: 15px;
+      &::placeholder {
+        font-size: 18px;
+        color: #292929;
+      }
+    }
+    &:first-child {
+      color: black;
+      background-color: #F7F6F6;
+    }
+    &:nth-child(2) {
+      color: #928F94;
+      outline-offset: 30px;
+      outline: 1px solid $orange-color;
+    }
+    & span {
+      width: 240px;
     }
   }
 }

@@ -1,6 +1,4 @@
 import alertSign from '../../assets/alert-sign.svg';
-import { useActions } from '../../hooks/actions';
-import { useAppSelector } from '../../hooks/redux';
 
 interface IAlertProps {
   type: 'danger' | 'warning',
@@ -9,8 +7,6 @@ interface IAlertProps {
 }
 
 export const Alert = ({ type, title = '', message }: IAlertProps) => {
-  const { alert } = useAppSelector(state => state.railTickets);
-  const { setAlert } = useActions();
 
   if (!alert) return;
 
@@ -25,7 +21,7 @@ export const Alert = ({ type, title = '', message }: IAlertProps) => {
           <p>{message}</p>
         </div>
         <footer className='alert__footer'>
-          <button onClick={() => setAlert()}>Понятно</button>
+          <button>Понятно</button>
         </footer>
       </div>
       <div className="alert__overlay"></div>

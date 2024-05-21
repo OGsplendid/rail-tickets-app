@@ -9,14 +9,14 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    &_logo-wrapper {
+    &__logo-wrapper {
       height: 64px;
       padding-left: 250px;
       display: flex;
       justify-content: left;
       align-items: center;
     }
-    &_form-wrapper {
+    &__form-wrapper {
       margin-left: 150px;
     }
   }

@@ -61,12 +61,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    &_link {
-      &:hover {
-        cursor: pointer;
-        fill: #FFCA62;
-        transition: .3s all ease;
-      }
+  }
+  &__social-link {
+    transition: .3s all ease;
+    &:hover {
+      cursor: pointer;
+      fill: #FFCA62;
+      transition: .3s all ease;
     }
   }
 }

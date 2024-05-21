@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { ICity, ITrainsData } from "../models/models";
+import { ICity, IFinalRequest, ITrainsData, IWagonInfo } from "../models/models";
 
 export const studentsNetoservicesApi = createApi({
   reducerPath: 'studentsNetoservices/api',
@@ -13,31 +13,32 @@ export const studentsNetoservicesApi = createApi({
     fetchDestinations: build.query<ITrainsData, string>({
       query: (query: string) => `routes?${query}`,
     }),
-  //   fetchCategories: build.query<ICategory[] | [], void>({
-  //     query: () => ({
-  //       url: 'categories',
-  //     })
-  //   }),
-  //   fetchGoods: build.query<IHit[] | [], string>({
-  //     query: (queryString = '') => `items${queryString}`,
-  //   }),
-  //   fetchProduct: build.query<IProduct, string>({
-  //     query: (queryString = '') => `items/${queryString}`,
-  //   }),
-  //   sendOrder: build.mutation<string | boolean, IOrder>({
-  //     query: (cart: IOrder) => ({
-  //       url: 'order',
-  //       method: 'POST',
-  //       body: JSON.stringify(cart),
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     })
-  //   })
+    fetchSeats: build.query<IWagonInfo, { id: string, query: string }>({
+      query: ({ id, query }) => `routes/${id}/seats?${query}`,
+    }),
+    sendData: build.mutation<void, IFinalRequest>({
+      query: (data: IFinalRequest) => ({
+        url: '/order',
+        method: 'POST',
+        body: data,
+      })
+    }),
+    subscribe: build.mutation<void, string>({
+      query: (email: string) => ({
+        url: `/subscribe?email=${email}`,
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+    })
   })
 })
 
 export const {
   useFetchCitiesQuery,
   useFetchDestinationsQuery,
+  useFetchSeatsQuery,
+  useSendDataMutation,
+  useSubscribeMutation,
 } = studentsNetoservicesApi;

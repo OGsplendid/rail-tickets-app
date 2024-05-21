@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useActions } from "../../hooks/actions";
 
 const sortOptions: string[] = [
   'времени',
@@ -10,20 +11,29 @@ const offsetOptions: number[] = [
   5, 10, 20,
 ]
 
-export const Sorter = () => {
+export const Sorter = ({ count }: { count: number | undefined }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [sortOption, setSortOption] = useState('времени');
-  const [offsetOption, setOffsetOption] = useState(5);
+  const [sort, setSort] = useState('времени');
+  const [limit, setLimit] = useState(5);
+
+  const { setDestinationQuery } = useActions();
 
   const handleSorting = (value: string) => {
-    setSortOption(value);
+    setSort(value);
     setMenuOpen(false);
   }
+
+  useEffect(() => {
+    setDestinationQuery({
+      sort: sort === 'времени' ? 'time' : sort === 'стоимости' ? 'price' : 'duration',
+      limit: limit.toString(),
+    });
+  }, [sort, limit, setDestinationQuery])
 
   return (
     <div className="sorter">
       <span className="sorter__results-amount">
-        найдено <span>20</span>
+        найдено <span>{count ? count : 0}</span>
       </span>
       <div className="sorter__wrapper">
         <div className="sorter__sort-time">
@@ -31,7 +41,7 @@ export const Sorter = () => {
           <span 
             className="sorter__sort-time_chosen"
             onClick={() => setMenuOpen(true)}
-          >{sortOption}
+          >{sort}
           </span>
           {menuOpen && <div className="sorter__sort-time_menu">
             {sortOptions.map((o) => (
@@ -43,8 +53,8 @@ export const Sorter = () => {
           показывать по:
           {offsetOptions.map((o) => (
             <span key={o}
-              className={o === offsetOption ? "sorter__offset_chosen" : ''}
-              onClick={() => setOffsetOption(+o)}
+              className={o === limit ? "sorter__offset_chosen" : ''}
+              onClick={() => setLimit(+o)}
             >{o}
             </span>
           ))}

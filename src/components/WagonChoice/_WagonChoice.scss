@@ -1,36 +1,9 @@
 .wagon-choice {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 70px;
-  & div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    cursor: pointer;
-    &:hover {
-      & span {
-        color: $orange-color;
-      }
-      & svg {
-        & path {
-          fill: $orange-color;
-        }
-      }
-    }
-    &.chosen {
-      & span {
-        color: $orange-color;
-      }
-      & svg {
-        & path {
-          fill: $orange-color;
-        }
-      }
+    padding: 20px 0 0;
+    & h3 {
+      font-family: 'bold';
+      font-size: 30px;
+      margin-bottom: 30px;
+      padding-left: 20px;
     }
   }
-  & span {
-    font-size: 24px;
-    color: #928F94;
-  }
-}

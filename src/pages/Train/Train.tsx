@@ -3,53 +3,59 @@ import { LastTickets } from "../../components/LastTickets/LastTickets"
 import { TrainCard } from "../../components/TrainCard/TrainCard"
 import { Footer } from "../../layout/footer/Footer"
 import { MainHeader } from "../../layout/headers/MainHeader/MainHeader"
-import { AntdPagination } from "../../antd/AntdPagination/AntdPagination"
 import { Sorter } from "../../components/Sorter/Sorter"
 import { MainContainer } from "../../layout/main-container/MainContainer"
 import { useFetchDestinationsQuery } from "../../store/students.netoservices.api"
 import { useQueryAssembler } from "../../hooks/useQueryAssembler"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { Pagination } from "../../components/Pagination/Pagination";
+import { useAppSelector } from "../../hooks/redux"
+import { useNavigate } from "react-router-dom"
+import { useActions } from "../../hooks/actions"
+import { Loader } from "../../components/Loader/Loader"
 
 export const Train = () => {
   const query = useQueryAssembler();
-  const { data } = useFetchDestinationsQuery(query);
-  console.log(data)
-  console.log(query)
-  const [totalCount, setTotalCount] = useState(null);
+  const { data, isLoading } = useFetchDestinationsQuery(query);
+  // console.log(query)
+
+  const { stage } = useAppSelector(state => state.railTickets);
+  const { setDirection, resetFinalDestinationData, resetPassengersTypes, resetSeatsQuantity } = useActions();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (!data || !data.items) return;
-    const minPriceArr = data.items.map((item) => item.min_price);
-    let minPrice = Infinity;
-    for (let i = 0; i < minPriceArr.length; i += 1) {
-      if (minPriceArr[i] < minPrice) minPrice = minPriceArr[i];
+    if (stage !== 2) {
+      resetFinalDestinationData();
+      resetPassengersTypes();
+      resetSeatsQuantity();
+      return;
     }
-    
-    // const maxPriceFirstClassArr = data.items.map((item) => item.)
-  }, [data])
-
-  // const priceRange = useMemo(() => {
-  //   const min = Math.min(data?.items.map((item) => item.min_price));
-  // }, [data])
+    setDirection();
+    navigate('/seats');
+  }, [stage])
 
   return (
     <>
       <MainHeader />
+      {isLoading && <Loader />}
+      {!isLoading &&
       <MainContainer>
         <aside>
           <AsideFilter />
           <LastTickets />
         </aside>
         <main className="train-page">
-          <Sorter />
+          <Sorter count={data?.total_count} />
           <div className="train-page__cards">
-            <TrainCard buttonType="primary" />
+            {data?.items && data?.items.map((item) => (
+              <TrainCard key={item.departure._id} buttonType="primary" item={item} />
+            ))}
           <div className="train-page__pagination">
-            <AntdPagination />
+            <Pagination itemsLength={data?.total_count || 0} />
           </div>
           </div>
         </main>
-      </MainContainer>
+      </MainContainer>}
       <Footer />
     </>
   )

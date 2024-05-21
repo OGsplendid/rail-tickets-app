@@ -1,0 +1,37 @@
+.pagination {
+    box-sizing: border-box;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    & li {
+        width: 72px;
+        height: 72px;
+        cursor: pointer;
+        color: gray;
+        border: 1px solid gray;
+        border-radius: 5px;
+        transition: .3s all ease;
+        &:hover {
+            border-color: orange;
+            color: orange;
+            transition: .3s all ease;
+        }
+        &.pagination-button-active {
+            color: white;
+            border-color: orange;
+            background-color: orange;
+            border: none;
+        }
+        & a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

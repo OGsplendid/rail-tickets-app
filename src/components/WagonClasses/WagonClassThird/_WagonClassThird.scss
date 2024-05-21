@@ -1,7 +1,7 @@
 .wagon-class-third {
   width: 921px;
   height: 145px;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   background-color: gray;
   background-image: url("../assets/wagon-seats-3.svg");
   position: relative;
@@ -21,7 +21,7 @@
     align-items: center;
     width: 27px;
     height: 31px;
-    background-color: lightgray;
+    background-color: rgb(238, 235, 235);
     margin-right: 1.5px;
     margin-bottom: 0;
     font-family: 'bold';
@@ -47,13 +47,14 @@
     &:active {
       color: $orange-color;
     }
-    &.seat-chosen {
+    &_chosen {
       color: white;
       background-color: $orange-color;
     }
-    &.seat-unavailable {
+    &_unavailable {
       background-color: darkgray;
-      color: darkgray;
+      color: white;
+      pointer-events: none;
     }
   }
   &__wagon-number {

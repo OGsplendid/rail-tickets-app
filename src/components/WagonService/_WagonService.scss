@@ -26,7 +26,7 @@
         fill: $orange-color;
       }
     }
-    &.chosen {
+    &_chosen {
       fill: $orange-color;
       & path {
         fill: white;
@@ -35,7 +35,7 @@
         stroke: none;
       }
     }
-    &.included {
+    &_included {
       fill: #FCDC9D;
       cursor: default;
       pointer-events: none;

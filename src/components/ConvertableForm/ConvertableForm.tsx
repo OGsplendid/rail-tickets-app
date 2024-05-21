@@ -135,9 +135,9 @@ export const ConvertableForm = ({ view }: { view: string }) => {
     <form className={formClass} onSubmit={handleSubmit}>
 
       <div className={wrapperClass}>
-        <div className='convertable-form__input-wrapper_helper'>
+        <div className='convertable-form__holder'>
           <label htmlFor="destination-from">Направление</label>
-          <div className='convertable-form__input-wrapper_geo'>
+          <div className='convertable-form__geo'>
             <input
               onChange={handleChange}
               value={form.destinationFrom.toUpperCase()}
@@ -149,7 +149,7 @@ export const ConvertableForm = ({ view }: { view: string }) => {
             />
           </div>
           {inputActive === 'destinationFrom' &&
-          <div className="convertable-form__input-wrapper_helper_roll">
+          <div className="convertable-form__roll">
             {options.map((city) => (
               <span
                 key={city._id}
@@ -162,7 +162,7 @@ export const ConvertableForm = ({ view }: { view: string }) => {
         </div>
         <img src={arrows} alt="⤵" onClick={swapCities} />
         <div>
-          <div className='convertable-form__input-wrapper_geo'>
+          <div className='convertable-form__geo'>
             <input
               onChange={handleChange}
               value={form.destinationTo.toUpperCase()}
@@ -173,7 +173,7 @@ export const ConvertableForm = ({ view }: { view: string }) => {
             />
           </div>
           {inputActive === 'destinationTo' &&
-          <div className="convertable-form__input-wrapper_helper_roll">
+          <div className="convertable-form__roll">
             {options.map((city) => (
               <span
                 key={city._id}
@@ -189,33 +189,32 @@ export const ConvertableForm = ({ view }: { view: string }) => {
       <div className={wrapperClass}>
         <div>
           <label>Дата</label>
-          <div className='convertable-form__input-wrapper_calendar'>
+          <div className='convertable-form__calendar'>
             <input
               onClick={() => handleCalendarOpen('dateFrom')}
               name="dateFrom" 
               placeholder='ДД/ММ/ГГ'
-              required
-              readOnly
               value={form.dateFrom}
+              readOnly
             />
           </div>
           {calendarOpen === 'dateFrom' &&
-          <div ref={ref} className='convertable-form__input-wrapper_triangle'>
+          <div ref={ref} className='convertable-form__calendar-holder'>
             <Calendar selectedDate={selectedDate} selectDate={(date: Date) => setSelectedDay(date)} />
           </div>}
         </div>
         <div>
-          <div className='convertable-form__input-wrapper_calendar'>
+          <div className='convertable-form__calendar'>
             <input
               onClick={() => handleCalendarOpen('dateTo')}
               name="dateTo" 
-              placeholder='ДД/ММ/ГГ' 
-              readOnly
+              placeholder='ДД/ММ/ГГ'
               value={form.dateTo}
+              readOnly
             />
           </div>
           {calendarOpen === 'dateTo' &&
-          <div ref={ref} className='convertable-form__input-wrapper_triangle'>
+          <div ref={ref} className='convertable-form__calendar-holder'>
             <Calendar selectedDate={selectedDate} selectDate={(date: Date) => setSelectedDay(date)} />
           </div>}
         </div>
